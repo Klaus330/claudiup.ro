@@ -1,0 +1,32 @@
+.swal-model {
+  text-align: center;
+}
+
+.swal-footer {
+  text-align: center;
+}
+
+.m-4 {
+  margin: 1.5em;
+}
+
+.mb-4 {
+  margin-bottom: 1.5em;
+}
+
+.mt-4 {
+  margin-top: 1.5em;
+}
+
+pre {
+  border: 1px solid #4169e1;
+  background: #4169e1;
+  padding: 40px;
+  line-height: 2;
+  font-weight: bold;
+}
+
+blockquote {
+  border-left: 5px solid #4169e1;
+}
+
