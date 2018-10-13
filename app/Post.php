@@ -12,13 +12,13 @@ use Intervention\Image\Facades\Image;
 
 class Post extends Model
 {
-	protected $fillable = ['title','slug','body','category_id'];
-
+    protected $fillable = ['title','slug','body','category_id'];
 
     /*
     * Relationship with comments
     */
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
     
@@ -27,7 +27,7 @@ class Post extends Model
     */
     public function category()
     {
-    	return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     /*
@@ -35,44 +35,41 @@ class Post extends Model
     */
     public function tags()
     {
-    	return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     /**
     * Return the post archives arrays
     */
-    public static function archives(){
-    	return static::selectRaw("year(created_at) year, monthname(created_at) month, count(*) published")
-					->groupBy('year','month')
-					->orderByRaw('min(created_at) desc')
-					->get()
-					->toArray();
+    public static function archives()
+    {
+        return static::selectRaw("year(created_at) year, monthname(created_at) month, count(*) published")
+                    ->groupBy('year', 'month')
+                    ->orderByRaw('min(created_at) desc')
+                    ->get()
+                    ->toArray();
     }
 
     /**
     * Filter the posts
     */
-    public function scopeFilter($query,$filters){
-    	
-    	if($month = $filters['month'])
-    	{
-    		$query->whereMonth('created_at', Carbon::parse($month)->month);
-    	}
+    public function scopeFilter($query, $filters)
+    {
+        if ($month = $filters['month']) {
+            $query->whereMonth('created_at', Carbon::parse($month)->month);
+        }
 
-    	if($year = $filters['year'])
-    	{
-    		$query->whereYear('created_at',$year);
-    	}
+        if ($year = $filters['year']) {
+            $query->whereYear('created_at', $year);
+        }
 
-    	if($category = $filters['category'])
-    	{ 	
-    		$category_id = Category::where('name',$category)->first()->id;
-    		$query->where('category_id',$category_id);
-    	}
+        if ($category = $filters['category']) {
+            $category_id = Category::where('name', $category)->first()->id;
+            $query->where('category_id', $category_id);
+        }
 
-        if($key = $filters['keyword'])
-        {
-            $query->where('body','LIKE','%'.$key.'%')->orWhere('title','LIKE','%'.$key.'%');
+        if ($key = $filters['keyword']) {
+            $query->where('body', 'LIKE', '%'.$key.'%')->orWhere('title', 'LIKE', '%'.$key.'%');
         }
     }
 
@@ -95,7 +92,7 @@ class Post extends Model
     * Update the thumbnail of the post
     * @param App\Post $post
     */
-    public function updateImage(Request $request,Post $post)
+    public function updateImage(Request $request, Post $post)
     {
         $oldfilename = $post->thumbnail;
 

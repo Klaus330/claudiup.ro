@@ -20,30 +20,30 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('blog.includes.sidebar', function($view){
+        view()->composer('blog.includes.sidebar', function ($view) {
             $categories = Category::has('post')->pluck('name');
             $archives = Post::archives();
             $posts = Post::latest()->take(3)->get();
             $tags = Tag::has('posts')->pluck('name');
-            $view->with(compact('categories','archives','posts','tags'));
+            $view->with(compact('categories', 'archives', 'posts', 'tags'));
         });
 
-        view()->composer('pages.includes.about.skills', function($view){
+        view()->composer('pages.includes.about.skills', function ($view) {
             $skills = Skill::all();
             $view->with(compact('skills'));
         });
 
-        view()->composer('home.index', function($view){
+        view()->composer('home.index', function ($view) {
             $projects = Project::all();
             $view->with(compact("projects"));
         });
       
-        view()->composer('admin.messages.partials.table', function($view){
+        view()->composer('admin.messages.partials.table', function ($view) {
             $messages = Message::latest()->paginate(5);
             $view->with(compact("messages"));
         });
 
-        view()->composer('admin.comments.partials.table', function($view){
+        view()->composer('admin.comments.partials.table', function ($view) {
             $comments = Comment::latest()->paginate(5);
             $view->with(compact("comments"));
         });

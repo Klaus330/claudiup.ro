@@ -27,7 +27,7 @@ class TagController extends Controller
     public function table()
     {
         $tags = Tag::latest()->paginate(10);
-        return view("admin.tags.table",compact('tags'));
+        return view("admin.tags.table", compact('tags'));
     }
 
     /**
@@ -38,7 +38,7 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate(request(),[
+        $this->validate(request(), [
             "name" => "required|string|unique:tags,name"
         ]);
 
@@ -57,7 +57,7 @@ class TagController extends Controller
     {
         $tag = Tag::find($id)->first();
         
-        return view("admin.tags.edit",compact('tag'));
+        return view("admin.tags.edit", compact('tag'));
     }
 
     /**
@@ -69,7 +69,7 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate(request(),[
+        $this->validate(request(), [
             "name" => "required|string|unique:tags,name",
         ]);
 

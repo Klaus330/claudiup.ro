@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware("auth");
     }
 
@@ -19,8 +19,8 @@ class CommentController extends Controller
      */
     public function table()
     {
-    	$comments = Comment::all();
-        return view("admin.comments.table",compact('comments'));
+        $comments = Comment::all();
+        return view("admin.comments.table", compact('comments'));
     }
 
     /**
@@ -39,17 +39,17 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$slug)
-    {   
-        $this->validate(request(),[
-        	"name" => "required|string",
-        	'email'=>"required|string",
-        	'message'=>'required'
+    public function store(Request $request, $slug)
+    {
+        $this->validate(request(), [
+            "name" => "required|string",
+            'email'=>"required|string",
+            'message'=>'required'
         ]);
 
-        Comment::store(request(),$slug);
+        Comment::store(request(), $slug);
 
-        return redirect()->route("blog.show",['slug'=>$slug]);
+        return redirect()->route("blog.show", ['slug'=>$slug]);
     }
 
     /**
@@ -67,7 +67,8 @@ class CommentController extends Controller
     /*
     * Update the validate column from the table
     */
-    public function validated(Comment $id){
+    public function validated(Comment $id)
+    {
         $id->validated = true;
         $id->save();
         return back();

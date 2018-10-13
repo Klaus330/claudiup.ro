@@ -10,20 +10,21 @@ use Illuminate\Support\Facades\Input;
 
 class PdfFile extends Model
 {
-	protected $fillable = ['project_id','location'];
+    protected $fillable = ['project_id','location'];
     
     public function project()
     {
-    	return $this->belongsTo(Project::class);
+        return $this->belongsTo(Project::class);
     }
 
     public static function store(Request $request, Project $project)
-    {        
-    	$extension = request()->file('pdf')->getClientOriginalExtension();
+    {
+        $extension = request()->file('pdf')->getClientOriginalExtension();
         $filename = time() . '.' . $extension;
         $location = base_path().'/public/files/uploads/' . $filename;
         Input::file('pdf')->move(
-          base_path().'/public/files/uploads/', $filename
+          base_path().'/public/files/uploads/',
+            $filename
         );
 
         $pdf = PdfFile::create([
@@ -38,12 +39,12 @@ class PdfFile extends Model
         return $pdf;
     }
 
-    public static function updatePDF(Request $request,Project $project)
+    public static function updatePDF(Request $request, Project $project)
     {
-        //delete the old pdf file 
+        //delete the old pdf file
         File::delete(public_path('/files/uploads/' . $project->pdf->location));
         
         //Save the new pdf file
-       $pdf = PdfFile::store($request, $project);
+        $pdf = PdfFile::store($request, $project);
     }
 }

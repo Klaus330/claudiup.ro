@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\File;
 
 class SlideProjectController extends Controller
 {
-    public function __construct(){
-    	return 	$this->middleware("auth");
+    public function __construct()
+    {
+        return 	$this->middleware("auth");
     }
 
     /**
@@ -19,46 +20,44 @@ class SlideProjectController extends Controller
      */
     public static function store(Request $request)
     {
-    	$project = new Project();
+        $project = new Project();
 
-    	$project->title = request('title');
-    	$project->client = request('client');
-    	$project->type = request('type');
-    	$project->description = request("description");
-    	$project->saveThumbnail($request,$project);
-    	$project->save();
+        $project->title = request('title');
+        $project->client = request('client');
+        $project->type = request('type');
+        $project->description = request("description");
+        $project->saveThumbnail($request, $project);
+        $project->save();
 
-    	foreach(request('slide') as $image)
-    	{
-    		$project->savePicture($project, $image);
-    	}
+        foreach (request('slide') as $image) {
+            $project->savePicture($project, $image);
+        }
 
-    	$project->skills()->sync(request('skills'), false);
+        $project->skills()->sync(request('skills'), false);
     }
 
-     /**
-     * Update an existing resource in storage.
-     *
-     * @return \Illuminate\Http\Response
-     * @param App\Project $project
-     */
-    public static function update(Request $request,Project $project)
+    /**
+    * Update an existing resource in storage.
+    *
+    * @return \Illuminate\Http\Response
+    * @param App\Project $project
+    */
+    public static function update(Request $request, Project $project)
     {
         $project->title = request('title');
         $project->client = request('client');
         $project->type = request('type');
         $project->description = request("description");
 
-        if(request('thumbnail'))
-        $project->saveThumbnail($request,$project);
+        if (request('thumbnail')) {
+            $project->saveThumbnail($request, $project);
+        }
 
         $project->save();
 
-        if(request('slide'))
-        {
+        if (request('slide')) {
             $project->deletePictures($project);
-            foreach(request('slide') as $image)
-            {
+            foreach (request('slide') as $image) {
                 $project->savePicture($project, $image);
             }
         }
@@ -67,7 +66,7 @@ class SlideProjectController extends Controller
         $project->skills()->sync(request('skills'), false);
     }
 
-      /**
+    /**
      * Remove the specified resource from storage.
      *
      * @param  App\Project  $project

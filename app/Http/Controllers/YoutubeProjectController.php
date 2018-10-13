@@ -10,7 +10,7 @@ class YoutubeProjectController extends Controller
 {
     public function __construct()
     {
-    	return 	$this->middleware("auth");
+        return 	$this->middleware("auth");
     }
 
     /**
@@ -20,20 +20,20 @@ class YoutubeProjectController extends Controller
      */
     public static function store(Request $request)
     {
-    	$project = new Project();
+        $project = new Project();
 
-    	$project->title = request('title');
-    	$project->client = request('client');
-    	$project->type = request('type');
-    	$project->description = request("description");
+        $project->title = request('title');
+        $project->client = request('client');
+        $project->type = request('type');
+        $project->description = request("description");
 
         $url = $project->formatUrl(request('url'));
     
-    	$project->url = $url;
-    	$project->saveThumbnail($request,$project);
-    	$project->save();
+        $project->url = $url;
+        $project->saveThumbnail($request, $project);
+        $project->save();
 
-    	$project->skills()->sync(request('skills'), false);
+        $project->skills()->sync(request('skills'), false);
     }
 
     /**
@@ -42,7 +42,7 @@ class YoutubeProjectController extends Controller
      * @return \Illuminate\Http\Response
      * @param App\Project $project
      */
-    public static function update(Request $request,Project $project)
+    public static function update(Request $request, Project $project)
     {
         $project->title = request('title');
         $project->client = request('client');
@@ -52,12 +52,13 @@ class YoutubeProjectController extends Controller
         $url = $project->formatUrl(request('url'));
     
         $project->url = $url;
-        if(request('thumbnail'))
-        $project->saveThumbnail($request,$project);
+        if (request('thumbnail')) {
+            $project->saveThumbnail($request, $project);
+        }
 
         $project->save();
 
-        $project->skills()->sync(request('skills'), false);   
+        $project->skills()->sync(request('skills'), false);
     }
 
     /**

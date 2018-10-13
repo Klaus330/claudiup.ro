@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProjectPicture extends Model
 {
-   	protected $table = 'project_images';
+    protected $table = 'project_images';
 
-   	/**
-	* Relationship with Projects
-   	*/
-   	public function project(){
-   		return $this->belongsTo(Project::class);
-   	}
+    /**
+    * Relationship with Projects
+    */
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }

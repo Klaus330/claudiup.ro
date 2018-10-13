@@ -9,19 +9,19 @@ class MessageController extends Controller
 {
     public function __construct()
     {
-      $this->middleware("auth")->except("store");
+        $this->middleware("auth")->except("store");
     }
 
     /*
-	*  Store the messages received from guests in the database.
+    *  Store the messages received from guests in the database.
     */
-    public function store(Request $request){
-    	
-    	$this->validate(request(),[
-    		'name' => "required|string",
-    		'email' => 'required|email',
-    		'body' => "required"
-    	]);
+    public function store(Request $request)
+    {
+        $this->validate(request(), [
+            'name' => "required|string",
+            'email' => 'required|email',
+            'body' => "required"
+        ]);
         
         Message::create(request(['name','email','body']));
     
@@ -34,21 +34,23 @@ class MessageController extends Controller
     public function table()
     {
         $messages = Message::latest()->paginate(15);
-        return view('admin.messages.table',compact('messages'));
+        return view('admin.messages.table', compact('messages'));
     }
 
     /*
     * Display a single message in admin dashbord
     */
-    public function show($id){
+    public function show($id)
+    {
         $message = Message::find($id);
-        return view('admin.messages.show',compact('message'));
+        return view('admin.messages.show', compact('message'));
     }
 
     /*
     * Delete a message from the table
     */
-    public function delete($id){
+    public function delete($id)
+    {
         Message::find($id)->delete();
         return back();
     }

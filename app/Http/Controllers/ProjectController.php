@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\File;
 
 class ProjectController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         return $this->middleware("auth");
     }
 
@@ -24,7 +25,7 @@ class ProjectController extends Controller
     public function table()
     {
         $projects = Project::latest()->paginate(10);
-        return view("admin.projects.table",compact('projects'));
+        return view("admin.projects.table", compact('projects'));
     }
 
     /**
@@ -34,8 +35,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $skills = Skill::pluck('name','id');
-        return view("admin.projects.create",compact('skills'));
+        $skills = Skill::pluck('name', 'id');
+        return view("admin.projects.create", compact('skills'));
     }
 
     /**
@@ -45,8 +46,8 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        $this->validate(request(),[
+    {
+        $this->validate(request(), [
             "title" => "required|string",
             'client'=>"required|string",
             'type'=>'required|string',
@@ -80,8 +81,8 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        $skills = Skill::pluck('name','id');
-        return view("admin.projects.edit",compact('project','skills'));
+        $skills = Skill::pluck('name', 'id');
+        return view("admin.projects.edit", compact('project', 'skills'));
     }
 
     /**
@@ -92,8 +93,8 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {  
-        $this->validate(request(),[
+    {
+        $this->validate(request(), [
             "title" => "required|string",
             'client'=>"required|string",
             'type'=>'required|string',
@@ -104,16 +105,16 @@ class ProjectController extends Controller
         $project = Project::find($id);
         switch (request('type')) {
             case 'image':
-                ImageProjectController::update($request,$project);
+                ImageProjectController::update($request, $project);
                 break;
             case 'youtube':
-                YoutubeProjectController::update($request,$project);
+                YoutubeProjectController::update($request, $project);
                 break;
             case 'slide':
-                SlideProjectController::update($request,$project);
+                SlideProjectController::update($request, $project);
                 break;
             case 'book':
-                BookProjectController::update($request,$project);
+                BookProjectController::update($request, $project);
                 break;
         }
         return redirect()->route("projects.table");

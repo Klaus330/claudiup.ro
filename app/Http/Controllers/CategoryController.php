@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware("auth");
@@ -31,8 +30,8 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
-        $this->validate(request(),[
+    {
+        $this->validate(request(), [
             "name" => "required|string"
         ]);
 
@@ -53,7 +52,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.category.edit',compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -65,7 +64,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate(request(),[
+        $this->validate(request(), [
             "name" => "required|string"
         ]);
 

@@ -32,10 +32,10 @@ class User extends Authenticatable
     /**
     *   Publish a new post
     */
-    public function publish(Post $post,$tags){
-        
+    public function publish(Post $post, $tags)
+    {
         $this->posts()->save($post);
 
-        $post->tags()->sync($tags, false);   
+        $post->tags()->sync($tags, false);
     }
 }
