@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class BlogController extends Controller
 {
@@ -27,6 +28,7 @@ class BlogController extends Controller
         *  e.g. www.my-website.com/blog/[my-first-post]
         */
         $post = Post::where('slug', $slug)->first();
+        Redis::zincrby("trending_posts", 1, $post);
         return view("blog.showPost", compact('post'));
     }
 }

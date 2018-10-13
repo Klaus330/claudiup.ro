@@ -7,6 +7,7 @@ use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redis;
 
 class PostController extends Controller
 {
@@ -57,7 +58,7 @@ class PostController extends Controller
         }
 
         $post->tags()->sync(request('tags'), false);
-
+        
         return redirect()->route("posts.table");
     }
 

@@ -35,9 +35,9 @@
 	<!-- Search Widget Ends -->
 	<!-- Latest Posts Widget Ends -->
 	<div class="widget recent-posts">
-		<h3 class="widget-title">Recent Posts</h3>
+		<h3 class="widget-title">Most Popular Posts</h3>
 		<ul class="unstyled clearfix">
-		@foreach($posts as $post)
+		@foreach($trending as $post)
 			<!-- Recent Post Widget Starts -->
 			<li>
 				<div class="posts-thumb pull-left"> 
