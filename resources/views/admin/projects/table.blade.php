@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-12" style="margin-bottom: 30px;">
 				<h1 class="float-left">Projects Table</h1>
-				<a href="{{route("project.create")}}" class="btn btn-lg btn-success float-right">Add project</a>
+				<a href="{{route("projects.create")}}" class="btn btn-lg btn-success float-right">Add project</a>
 			</div>
 		</div>
 		<div class="row">
@@ -31,10 +31,10 @@
 				      <td>
 				      	<ul class="list-inline">
 				      		<li class="list-inline-item">
-				      			<a class="btn btn-success btn-sm" href="{{route('project.edit',['id' => $project->id])}}"><i class="fa fa-edit"></i></a>
+				      			<a class="btn btn-success btn-sm" href="{{route('projects.edit',['id' => $project->id])}}"><i class="fa fa-edit"></i></a>
 				      		</li>
 				      		<li class="list-inline-item">
-				      			{!! Form::open(['method'=>'DELETE', 'route' => ["project.delete", $project->id]]) !!}
+				      			{!! Form::open(['method'=>'DELETE', 'route' => ["projects.destroy", $project->id]]) !!}
 		                        {{ method_field('DELETE') }}﻿
 									<button class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
 								{!!Form::close() !!}

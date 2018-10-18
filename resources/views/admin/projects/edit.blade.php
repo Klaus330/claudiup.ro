@@ -7,7 +7,7 @@
 				<h1>Edit {{$project->type}} project</h1>
 			</div>
 			<div class="col-md-12">
-				{!!Form::open(['route' => ['project.update',$project->id],'files' => true,'method'=>'PATCH','id'=>'root'])!!}
+				{!!Form::open(['route' => ['projects.update',$project->id],'files' => true,'method'=>'PATCH','id'=>'root'])!!}
 						@method("PATCH")
 						<div class="form-group">
 							{{Form::label('title','Title:')}}

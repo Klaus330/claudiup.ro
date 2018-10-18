@@ -91,7 +91,6 @@ class Project extends Model
         }
     }
 
-
     /*
     * Reformat the url for the Youtube Video Projects
     */

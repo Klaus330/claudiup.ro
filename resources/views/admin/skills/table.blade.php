@@ -23,10 +23,10 @@
 				      <td>
 				      	<ul class="list-inline">
 				      		<li class="list-inline-item">
-				      			<a class="btn btn-success btn-sm" href="{{route('skills.edit',['id' => $skill->id])}}"><i class="fa fa-edit"></i></a>
+				      			<a class="btn btn-success btn-sm" href="{{route('skill.edit',['id' => $skill->id])}}"><i class="fa fa-edit"></i></a>
 				      		</li>
 				      		<li class="list-inline-item">
-				      			{!! Form::open(['method'=>'DELETE', 'route' => ["skills.delete", $skill->id]]) !!}
+				      			{!! Form::open(['method'=>'DELETE', 'route' => ["skill.destroy", $skill->id]]) !!}
 		                        {{ method_field('DELETE') }}﻿
 									<button class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
 								{!!Form::close() !!}
@@ -41,7 +41,7 @@
 		</div>
 			<div class="col-md-6">
 				<h1>Add a new skill</h1>
-				<form action="{{route('skills.store')}}" method="POST">
+				<form action="{{route('skill.store')}}" method="POST">
 					@csrf
 					<div class="form-group">
 						<label for="name">Name</label>

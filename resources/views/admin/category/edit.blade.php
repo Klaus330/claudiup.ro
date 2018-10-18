@@ -14,7 +14,7 @@
 				
 					<div class="form-group" style="margin-top: 30px;">
 						<button class="btn btn-success btn-lg">Edit  <i class="fa fa-check"></i></button>
-						<a href="{{route('tags.table')}}" class="btn btn-danger btn-lg float-right">Cancel <i class="fa fa-times"></i></a>
+						<a href="{{route('category.index')}}" class="btn btn-danger btn-lg float-right">Cancel <i class="fa fa-times"></i></a>
 					</div>
 				{!! Form::close() !!}
 			</div>

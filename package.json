@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "bootstrap-sweetalert": "^1.0.1",
+        "redis-server": "^1.2.2",
         "sweetalert": "^2.1.0",
         "trix": "^0.12.1",
         "vue-router": "^3.0.1"

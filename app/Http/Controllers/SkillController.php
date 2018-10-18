@@ -16,7 +16,7 @@ class SkillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function table()
+    public function index()
     {
         $skills = Skill::latest()->paginate(10);
         return view("admin.skills.table", compact('skills'));
@@ -37,7 +37,7 @@ class SkillController extends Controller
 
         Skill::create(request(['name','experience_level']));
 
-        return redirect()->route("skills.table");
+        return back();
     }
 
     /**
@@ -46,10 +46,10 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Skill $id)
-    {
-        $skill = $id;
+    public function edit( $id)
+    {  
         $skills = Skill::latest()->paginate(10);
+        $skill = Skill::find($id);
         return view("admin.skills.edit", compact('skill', 'skills'));
     }
 
@@ -60,16 +60,16 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Skill $id)
+    public function update(Request $request, $id)
     {
         $this->validate(request(), [
             "name" => "required|string",
             'experience_level' => "required|integer|between:1,5"
         ]);
+        
+        Skill::find($id)->update(request(['name','experience_level']));
 
-        $id->update(request(['name','experience_level']));
-
-        return redirect()->route("skills.table");
+        return redirect()->route("skill.index");;
     }
 
     /**

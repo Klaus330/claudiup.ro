@@ -29,7 +29,7 @@ class TagController extends Controller
         $tags = Tag::latest()->paginate(10);
         return view("admin.tags.table", compact('tags'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -44,7 +44,7 @@ class TagController extends Controller
 
         Tag::create(request(['name']));
 
-        return redirect()->route("tags.table");
+        return back();
     }
 
     /**
@@ -55,7 +55,7 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        $tag = Tag::find($id)->first();
+        $tag = Tag::find($id);
         
         return view("admin.tags.edit", compact('tag'));
     }
@@ -75,7 +75,7 @@ class TagController extends Controller
 
         Tag::find($id)->update(request(['name']));
 
-        return redirect()->route("tags.table");
+        return redirect()->route("tag.table");
     }
 
     /**

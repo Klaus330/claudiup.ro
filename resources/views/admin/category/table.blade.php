@@ -27,7 +27,7 @@
 					      			<a  class="btn btn-sm btn-success" href="{{route('category.edit',['id'=>$category->id])}}"><i class="fa fa-edit"></i></a>
 					      		</li>
 					      		<li class="list-inline-item">
-					      			{!! Form::open(['method'=>'DELETE', 'route' => ["category.delete", $category->id]]) !!}
+					      			{!! Form::open(['method'=>'DELETE', 'route' => ["category.destroy", $category->id]]) !!}
 			                        {{ method_field('DELETE') }}﻿
 										<button class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
 									{!!Form::close() !!}

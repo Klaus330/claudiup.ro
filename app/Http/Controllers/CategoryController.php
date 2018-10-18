@@ -17,7 +17,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function table()
+    public function index()
     {
         $categories = Category::latest()->paginate(10);
         return view("admin.category.table", compact('categories'));
@@ -39,7 +39,7 @@ class CategoryController extends Controller
         $category->name = request('name');
         $category->save();
         
-        return redirect()->route("categories.table");
+        return back();
     }
 
 
@@ -72,7 +72,7 @@ class CategoryController extends Controller
         $category->name = request('name');
         $category->save();
 
-        return redirect()->route('categories.table');
+        return redirect()->route('category.index');
     }
 
     /**

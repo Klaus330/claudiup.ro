@@ -22,7 +22,7 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function table()
+    public function index()
     {
         $projects = Project::latest()->paginate(10);
         return view("admin.projects.table", compact('projects'));

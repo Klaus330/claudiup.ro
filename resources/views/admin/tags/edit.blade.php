@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				@include("includes.error")
-				{!! Form::model($tag, ['method' => 'PATCH','route'=> ['tags.update', $tag->id]]) !!}
+				{!! Form::model($tag, ['method' => 'PATCH','route'=> ['tag.update', $tag->id]]) !!}
             		{{ method_field('PATCH') }}﻿
 					<div class="form-group">
 						<label for="name">Name</label>
@@ -14,7 +14,7 @@
 				
 					<div class="form-group" style="margin-top: 30px;">
 						<button class="btn btn-success btn-lg">Edit  <i class="fa fa-check"></i></button>
-						<a href="{{route('tags.table')}}" class="btn btn-danger btn-lg float-right">Cancel <i class="fa fa-times"></i></a>
+						<a href="{{route('tag.table')}}" class="btn btn-danger btn-lg float-right">Cancel <i class="fa fa-times"></i></a>
 					</div>
 				{!! Form::close() !!}
 			</div>

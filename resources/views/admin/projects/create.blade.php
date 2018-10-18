@@ -6,7 +6,7 @@
 				<h1>Create a project</h1>
 			</div>
 			<div class="col-md-12">
-				{!!Form::open(['route' => 'project.store','files' => true,'id'=>'root'])!!}
+				{!!Form::open(['route' => 'projects.store','files' => true,'id'=>'root'])!!}
 
 						<div class="form-group">
 							{{Form::label('title','Title:')}}

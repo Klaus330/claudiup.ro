@@ -24,10 +24,10 @@
 				      			<a class="btn btn-info btn-sm" href="{{route('blog.tag',['id' => $tag->name])}}"><i class="fa fa-eye"></i></a>
 				      		</li>
 				      		<li class="list-inline-item">
-				      			<a class="btn btn-success btn-sm" href="{{route('tags.edit',['id' => $tag->id])}}"><i class="fa fa-edit"></i></a>
+				      			<a class="btn btn-success btn-sm" href="{{route('tag.edit',['id' => $tag->id])}}"><i class="fa fa-edit"></i></a>
 				      		</li>
 				      		<li class="list-inline-item">
-				      			{!! Form::open(['method'=>'DELETE', 'route' => ["tags.delete", $tag->id]]) !!}
+				      			{!! Form::open(['method'=>'DELETE', 'route' => ["tag.destroy", $tag->id]]) !!}
 		                        {{ method_field('DELETE') }}﻿
 									<button class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
 								{!!Form::close() !!}
@@ -42,7 +42,7 @@
 		</div>
 			<div class="col-md-6">
 				<h1>Add a new tag</h1>
-				<form action="{{route('tags.store')}}" method="POST">
+				<form action="{{route('tag.store')}}" method="POST">
 					@csrf
 					<div class="form-group">
 						<label for="name"></label>

@@ -11,25 +11,14 @@
 			      <th scope="col">#</th>
 			      <th scope="col">Name</th>
 			      <th scope="col">Experience</th>
-			      <th></th>
 			    </tr>
 			  </thead>
 			  <tbody>
-				  @foreach ($skills as $skill)
+				  @foreach ($skills as $ability)
 				  	 <tr>
-				      <th scope="row">{{$skill->id}}</th>
-				      <td>{{$skill->name}}</td>
-				      <td>{{$skill->experience_level}}/5</td>
-				      <td>
-				      	<ul class="list-inline">
-				      		<li class="list-inline-item">
-				      			{!! Form::open(['method'=>'DELETE', 'route' => ["skills.delete", $skill->id]]) !!}
-		                        {{ method_field('DELETE') }}﻿
-									<button class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
-								{!!Form::close() !!}
-				      		</li>
-						</ul>
-				      </td>
+				      <th scope="row">{{$ability->id}}</th>
+				      <td>{{$ability->name}}</td>
+				      <td>{{$ability->experience_level}}/5</td>
 				    </tr>
 				  @endforeach
 			  </tbody>
@@ -38,7 +27,7 @@
 		</div>
 			<div class="col-md-6">
 				<h1>Add a new skill</h1>
-				{!! Form::open(['method'=>'PATCH', 'route' => ["skills.update", $skill->id]]) !!}
+				{!! Form::open(['method'=>'PATCH', 'route' => ["skill.update", $skill->id]]) !!}
 		            {{ method_field('PATCH') }}﻿
 					<div class="form-group">
 						<label for="name">Name</label>
@@ -57,7 +46,8 @@
 					</div>
 
 					<div class="form-group">
-						<button class="btn btn-md btn-info">Add</button>
+						<button class="btn btn-md btn-success">Edit</button>
+						<a href="{{route('skill.index')}}" class="btn btn-md btn-danger float-right">Cancel</a>
 					</div>
 				{!!Form::close() !!}
 				@include("includes.error")

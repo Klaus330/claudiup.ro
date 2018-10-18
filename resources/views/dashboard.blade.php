@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <ul class="list-inline text-justify" >
                         <li class="list-inline-item"><a href="{{route("posts.create")}}"> <i class="fa fa-plus-square"></i> create post</a></li>
-                         <li class="list-inline-item"><a href="{{route('skills.table')}}"> <i class="fa fa-star"></i> skills table</a></li>
+                         <li class="list-inline-item"><a href="{{route('skill.index')}}"> <i class="fa fa-star"></i> skills table</a></li>
                          <li class="list-inline-item"><a href="{{route('comments.table')}}"> <i class="fa fa-user"></i> commets table</a></li>
                     </ul>
                 </div>

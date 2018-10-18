@@ -47,9 +47,9 @@
                         @else
                         <li class="nav-item"><a href="{{route("dashboard")}}" class="nav-link">Dashboard</a></li>
                         <li class="nav-item"><a href="{{route("posts.table")}}" class="nav-link">Posts</a></li>
-                        <li class="nav-item"><a href="{{route("categories.table")}}" class="nav-link">Categories</a></li>
-                        <li class="nav-item"><a href="{{route("tags.table")}}" class="nav-link">Tags</a></li>
-                        <li class="nav-item"><a href="{{route("projects.table")}}" class="nav-link">Projects</a></li>
+                        <li class="nav-item"><a href="{{route("category.index")}}" class="nav-link">Categories</a></li>
+                        <li class="nav-item"><a href="{{route("tag.table")}}" class="nav-link">Tags</a></li>
+                        <li class="nav-item"><a href="{{route("projects.index")}}" class="nav-link">Projects</a></li>
                         @endguest
                     </ul>
 
