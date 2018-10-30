@@ -11,9 +11,9 @@
 		</div>
 		<div class="comment-content">
 		<p class="second-font">{!!Purifier::clean($comment->message)!!}</p></div>
-		{{-- <div>
+		<div>
 			<a class="comment-reply" href="#">Reply</a>
-		</div>	 --}}
+		</div>	
 	</div>
 </div>
 <!-- Comment Ends -->
