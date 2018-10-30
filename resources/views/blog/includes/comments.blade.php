@@ -11,7 +11,7 @@
 		@foreach ($post->comments as $comment)
 			@include("blog.includes.singleComment")
 		@endforeach
-		{{-- @include("blog.includes.commentReply") --}}
+		@include("blog.includes.commentReply")
 	</li>
 	@endif
 </ul>
