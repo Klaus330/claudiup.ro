@@ -29,9 +29,11 @@
 						<article>
 							<a href="blog-post-dark.html"><h4>{{$post->title}}</h4></a>
 							<!-- Figure Starts -->
-							<figure class="blog-figure">
-								<img class="responsive-img" src="../images/thumbnail/{{$post->thumbnail}}" alt="">
-							</figure>
+							@if($post->thumbnail)
+								<figure class="blog-figure">
+									<img class="responsive-img" src="../images/thumbnail/{{$post->thumbnail}}" alt="">
+								</figure>
+							@endif
 							<!-- Figure Ends -->
 							<!-- Excerpt Starts -->
 							<div class="blog-excerpt second-font">
@@ -59,8 +61,9 @@
 							</div>
 						</article>
 						<!-- Article Ends -->
+					</div>
+					@include("blog.includes.sidebar")
 				</div>
-				@include("blog.includes.sidebar")
 			</div>
 		</div>
     </div>

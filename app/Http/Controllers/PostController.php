@@ -50,7 +50,7 @@ class PostController extends Controller
         ]);
 
         $post = Post::create(request(['title','slug','thumbnail','category_id','body']));
-
+        
         if ($request->thumbnail) {
             $post->saveImage($request, $post);
         } else {

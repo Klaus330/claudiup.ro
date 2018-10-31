@@ -8,6 +8,8 @@ Vue.component('multiple-select', require('./components/MultipleSelect.vue'));
 Vue.component('validate-button', require('./components/ValidateButton.vue'));
 Vue.component('delete-button', require('./components/DeleteButton.vue'));
 Vue.component('book', require('./components/Book.vue'));
+Vue.component('comment', require('./components/Comment.vue'));
+Vue.component('comment-form', require('./components/CommentForm.vue'));
 
 new Vue({
     el: '#app',

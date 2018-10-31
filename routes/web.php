@@ -47,7 +47,7 @@ Route::prefix('/posts')->group(function(){
 // Comment routes
 Route::prefix('/comments')->group(function(){
 	Route::get("/","CommentController@table")->name("comments.table");
-	Route::post("/create/{slug}","CommentController@store")->name("comments.store");
+	Route::post("/post/{slug}","CommentController@store")->name("comments.store");
 	Route::delete("/delete/{id}","CommentController@destroy")->name("comments.delete");
 	Route::patch("/{id}","CommentController@validated")->name("comments.validate");
 });

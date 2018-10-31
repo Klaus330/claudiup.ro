@@ -73,6 +73,12 @@ class Post extends Model
         }
     }
 
+     public function getComments()
+    {
+        $comments = $this->comments->groupBy("parent_id");
+        return $comments;
+    }
+
     /**
     * Save the thumbnail of a post
     * @param App\Post $post

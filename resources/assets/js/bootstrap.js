@@ -3,6 +3,7 @@ import Vue from 'vue';
 import axios from 'axios';
 import Form from './utilities/Form.js';
 import swal from 'sweetalert';
+import moment from 'moment';
 
 window.Vue = Vue;
 window.jQuery = jQuery;

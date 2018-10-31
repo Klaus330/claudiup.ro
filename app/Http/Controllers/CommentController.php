@@ -40,7 +40,7 @@ class CommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $slug)
-    {
+    {  
         $this->validate(request(), [
             "name" => "required|string",
             'email'=>"required|string",
