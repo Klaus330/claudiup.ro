@@ -28,10 +28,13 @@ class BlogController extends Controller
         *  e.g. www.my-website.com/blog/[my-first-post]
         */
         $post = Post::where('slug', $slug)->first();
-
+        // dd($post);
         $comments = $post->getComments();
+        $comments_count = $post->comments()->count();
+        // dd($comments);
     
         Redis::zincrby("trending_posts", 1, $post);
-        return view("blog.showPost", compact('post','comments'));
+
+        return view("blog.showPost", compact('post','comments','comments_count'));
     }
 }

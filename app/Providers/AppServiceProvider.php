@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('home.index', function ($view) {
-            $projects = Project::all();
+            $projects = Project::all(); 
             $view->with(compact("projects"));
         });
       
@@ -60,6 +60,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if($this->app->isLocal()){
+            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+        }
     }
 }

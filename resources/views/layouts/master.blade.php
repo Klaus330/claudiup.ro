@@ -20,6 +20,7 @@
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.12.1/trix.css"> --}}
      <link rel="stylesheet" type="text/css" href="/css/app.css" />
     
+
     <!-- Template JS Files -->
     <script src="/js/jquery-2.2.4.min.js"></script>
     <script src="/js/modernizr.custom.js"></script>
@@ -33,7 +34,7 @@
         @yield('content')
     
 
-   
+
   <!-- Template JS Files -->
     <script src="/js/jquery.animatedheadline.js"></script>
     <script src="/js/jquery.hoverdir.js"></script>
@@ -41,8 +42,11 @@
     <script src="/js/custom.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/boxlayout.js"></script>
-     @yield('scripts')
     
+ 
+
+     @yield('scripts')
+
 </body>
 
 </html>

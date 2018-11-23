@@ -13,6 +13,7 @@ use Intervention\Image\Facades\Image;
 class Post extends Model
 {
     protected $fillable = ['title','slug','body','category_id'];
+    protected $with=['category','tags'];
 
     /*
     * Relationship with comments

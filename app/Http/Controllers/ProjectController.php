@@ -69,7 +69,7 @@ class ProjectController extends Controller
                 BookProjectController::store($request);
                 break;
         }
-        return redirect()->route("projects.table");
+        return redirect('/projects');
     }
 
     /**

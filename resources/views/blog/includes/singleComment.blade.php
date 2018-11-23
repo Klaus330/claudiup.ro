@@ -1,6 +1,6 @@
 @if($comment->validated)
 <!-- Comment Starts -->
-	<comment :item="{{json_encode($comment->load('post'))}}"></comment>
+	<comment :item="{{json_encode($comment)}}"></comment>
 	@if ($comment->replies()->count() != 0)
 		@foreach ($comment->replies() as $comment)
 			@if ($comment->validated)

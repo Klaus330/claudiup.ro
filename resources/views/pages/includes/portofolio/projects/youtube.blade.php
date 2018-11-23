@@ -1,4 +1,3 @@
-
 <!-- Project Starts -->
 <div data-panel="panel-{{$i}}">
     <div class="row">

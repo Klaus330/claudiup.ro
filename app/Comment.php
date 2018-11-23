@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class Comment extends Model
 {
     protected $fillable = ['name','email','message'];
+    protected $with=['post'];
 
     /**
     *   Relationship with posts

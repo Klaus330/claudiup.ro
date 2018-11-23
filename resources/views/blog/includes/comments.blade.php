@@ -1,8 +1,8 @@
 <!-- Comments Starts -->
 <div class="comments">
-<h3 class="comments-heading uppercase">{{$comments->count()}} Comments</h3>
+<h3 class="comments-heading uppercase">{{$comments_count}} Comments</h3>
 <ul class="comments-list">
-	@if($comments->count() == 0)
+	@if($comments_count == 0)
 		<li>
 			<p>Be the first one who leaves a comment!</p>
 		</li>

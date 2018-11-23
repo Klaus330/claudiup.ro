@@ -7,7 +7,7 @@
             <book location="{{$projects[$i]->pdf->location}}" :project_id="{{$i}}"></book>
         </div>
         <!-- Project Main Content Ends -->
-
+ 
         <!-- Project Details Starts -->
         <div class="col s12 l6 xl6 white-text ">
             <h3 class="font-weight-600 white-text uppercase">{{$projects[$i]->title}}</h3>

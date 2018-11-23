@@ -19,7 +19,7 @@ class CommentController extends Controller
      */
     public function table()
     {
-        $comments = Comment::all();
+        $comments = Comment::latest();
         return view("admin.comments.table", compact('comments'));
     }
 

@@ -24,11 +24,10 @@
 @endsection
 
 @section('head')
-    @if($projects->search('pdf_file_id') > 0)
+         <script src="/js/libs/jquery.min.js"></script>
         <script src="/js/libs/html2canvas.min.js"></script>
         <script src="/js/libs/three.min.js"></script>
         <script src="/js/libs/pdf.min.js"></script>
 
         <script src="/js/dist/3dflipbook.min.js"></script>
-    @endif
 @endsection

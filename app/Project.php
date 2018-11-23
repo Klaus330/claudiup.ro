@@ -10,6 +10,7 @@ use Intervention\Image\Facades\Image;
 
 class Project extends Model
 {
+    protected $with=['skills','images','pdf'];
     /*
     * Relationship with skills
     */

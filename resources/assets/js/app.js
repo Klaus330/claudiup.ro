@@ -1,6 +1,7 @@
 import "./bootstrap.js";
 
 
+
 Vue.component('contact-form', require('./components/ContactForm.vue'));
 Vue.component('wysiwyg', require('./components/Wysiwyg.vue'));
 Vue.component('project-type-list', require('./components/ProjectTypeList.vue'));
@@ -14,3 +15,5 @@ Vue.component('comment-form', require('./components/CommentForm.vue'));
 new Vue({
     el: '#app',
 });
+
+
