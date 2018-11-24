@@ -54,30 +54,6 @@ class Post extends Model
     }
 
     /**
-    * Filter the posts
-    */
-    public function scopeFilter($query, $filters)
-    {
-        if ($month = $filters['month']) {
-            $query->whereMonth('created_at', Carbon::parse($month)->month);
-        }
-
-        if ($year = $filters['year']) {
-            $query->whereYear('created_at', $year);
-        }
-
-        if ($category = $filters['category']) {
-            $category_id = Category::where('name', $category)->first()->id;
-            $query->where('category_id', $category_id);
-        }
-
-        if ($key = $filters['keyword']) {
-            $query->where('body', 'LIKE', '%'.$key.'%')->orWhere('title', 'LIKE', '%'.$key.'%');
-        }
-    }
-
-
-    /**
     * Get the comments of a post
     */
     public function getComments()
@@ -101,6 +77,14 @@ class Post extends Model
         return Post::hydrate(
                 array_map("json_decode", Redis::zrevrange('trending_posts', 0, 2))
         );
+    }
+
+    /**
+    * Filter a post according to its filters
+    */
+    public function scopeFilters($query, $filters)
+    {
+        return $filters->apply($query);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\Filters\PostFilter;
 use Illuminate\Support\Facades\Redis;
 
 class BlogController extends Controller
@@ -11,13 +12,16 @@ class BlogController extends Controller
     /*
     * Display the blog page
     */
-    public function index()
+    public function index(PostFilter $filters)
     {
-        $posts = Post::latest()->filter(request())->paginate(3);
-    
+        $posts = $this->getPosts($filters);
         return view('blog.index', compact('posts'));
     }
 
+    protected function getPosts($filters)
+    {
+        return Post::latest()->filters($filters)->paginate(3);
+    }
     /*
     *	Show a single post view
     *   @param string
@@ -35,6 +39,6 @@ class BlogController extends Controller
     
         Redis::zincrby("trending_posts", 1, $post);
 
-        return view("blog.showPost", compact('post','comments','comments_count'));
+        return view("blog.showPost", compact('post', 'comments', 'comments_count'));
     }
 }
