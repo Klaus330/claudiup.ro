@@ -9,7 +9,6 @@ use App\Post;
 use App\Project;
 use App\Skill;
 use App\Tag;
-use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,10 +23,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('blog.includes.sidebar', function ($view) {
             $categories = Category::has('post')->pluck('name');
             $archives = Post::archives();
-            $trending = Redis::zrevrange('trending_posts', 0, 2);
-            $trending = Post::hydrate(
-                array_map("json_decode", $trending)
-            );
+            $trending = Post::getTrending();
             $tags = Tag::has('posts')->pluck('name');
             $view->with(compact('categories', 'archives', 'trending', 'tags'));
         });

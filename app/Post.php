@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redis;
 use Intervention\Image\Facades\Image;
 
 class Post extends Model
@@ -75,14 +76,31 @@ class Post extends Model
         }
     }
 
+
+    /**
+    * Get the comments of a post
+    */
     public function getComments()
     {
         return  $this->comments->groupBy("parent_id");
     }
 
+    /**
+    * Get the count of comments of a post
+    */
     public function getCommentsCountAttribute()
     {
         return $this->comments->count();
+    }
+
+     /**
+    * Return the trending posts of the month
+    */
+    public static function getTrending()
+    {
+        return Post::hydrate(
+                array_map("json_decode", Redis::zrevrange('trending_posts', 0, 2))
+        );
     }
 
     /**
