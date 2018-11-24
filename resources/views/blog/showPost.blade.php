@@ -22,7 +22,7 @@
 			<span class="outer-line"></span>
 		</div>
 		<!-- Divider Ends -->
-		<div class="container" id="app">
+		<div class="container" id="app"> 
 			<div class="row">
 				<div class="content col s12 m8 l8 xl8">
 					<!-- Article Starts -->
@@ -58,7 +58,7 @@
 							</div>
 							<!-- Excerpt Ends -->
 							@include("blog.includes.comments")
-							</div>
+							
 						</article>
 						<!-- Article Ends -->
 					</div>

@@ -16,9 +16,9 @@
 		</a>
 		<!-- Meta Starts -->
 		<div class="meta second-font">
-			<span><i class="fa fa-user"></i> <a href="/">admin</a></span>
+			<span><i class="fa fa-user"></i> <a href="{{route("blog.show",['slug'=>$post->slug])}}">admin</a></span>
 			<span class="date"><i class="fa fa-calendar"></i>&nbsp;{{$post->created_at->format("d M Y")}}</span>
-			<span><i class="fa fa-commenting"></i> <a href="{{route("blog.show",['slug'=>$post->slug])}}">{{$post->getComments()->count()}}</a></span>
+			<span><i class="fa fa-commenting"></i> <a href="{{route("blog.show",['slug'=>$post->slug])}}">{{$post->comments_count}}</a></span>
 			
 			@if(count($post->tags))
 			<span><i class="fa fa-tags"></i>

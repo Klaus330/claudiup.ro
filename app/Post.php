@@ -13,7 +13,8 @@ use Intervention\Image\Facades\Image;
 class Post extends Model
 {
     protected $fillable = ['title','slug','body','category_id'];
-    protected $with=['category','tags'];
+    protected $with = ['category','tags'];
+    protected $appends = ['commentsCount'];
 
     /*
     * Relationship with comments
@@ -74,10 +75,14 @@ class Post extends Model
         }
     }
 
-     public function getComments()
+    public function getComments()
     {
-        $comments = $this->comments->groupBy("parent_id");
-        return $comments;
+        return  $this->comments->groupBy("parent_id");
+    }
+
+    public function getCommentsCountAttribute()
+    {
+        return $this->comments->count();
     }
 
     /**

@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     /*
     * Display a table with all the latest posts
     */

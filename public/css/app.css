@@ -28,6 +28,9 @@ pre {
   padding: 40px;
   line-height: 2;
   font-weight: bold;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 blockquote {
