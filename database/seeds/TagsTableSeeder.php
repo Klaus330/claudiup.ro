@@ -11,6 +11,7 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
+        Tag::truncate();
     	collect([
     		'PHP',
     		"MySQL",

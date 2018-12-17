@@ -10,7 +10,8 @@ class SkillsTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {	
+    	Skill::truncate();
         factory(Skill::class,10)->create();
     }
 }

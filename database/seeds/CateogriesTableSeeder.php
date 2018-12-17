@@ -11,6 +11,7 @@ class CateogriesTableSeeder extends Seeder
      */
     public function run()
     {
+        Category::truncate();
     	collect([
     		'PHP',
     		"MySQL",
