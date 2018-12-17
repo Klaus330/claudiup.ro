@@ -45,3 +45,9 @@ $factory->define(App\Tag::class,function(Faker $faker){
 	];
 });
 
+$factory->define(App\Skill::class, function(Faker $faker){
+	return [
+		'name' => $faker->word,
+		'experience_level' => $faker->numberBetween($min = 1, $max = 5) 
+	];
+});
