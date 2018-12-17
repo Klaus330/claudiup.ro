@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redis;
 
 class BlogController extends Controller
 {
+    
     /*
     * Display the blog page
     */
@@ -20,8 +21,9 @@ class BlogController extends Controller
 
     protected function getPosts($filters)
     {
-        return Post::latest()->filters($filters)->paginate(3);
+        return Post::latest()->filters($filters)->paginate(5);
     }
+
     /*
     *	Show a single post view
     *   @param string

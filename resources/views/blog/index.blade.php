@@ -34,10 +34,9 @@
 					@elseif(Request::has(['month','year']))
 						{{$posts->appends(['month' => request()->input('month'), 'year' => request()->input('year')])->links()}}
 					@elseif(Request::has('keyword'))
-						{{$posts->appends(['keyword' => request()->input('keyword')])->links()}}
-					@elseif(Request::is('blog/*'))
-						{{$posts->links()}}
+						{{$posts->appends(['keyword' => request()->input('keyword')])->links()}}	
 					@endif
+					{{$posts->links()}}
 				</div>
 			
 			@include("blog.includes.sidebar")
