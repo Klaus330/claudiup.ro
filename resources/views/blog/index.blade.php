@@ -21,22 +21,25 @@
 			<div class="row">
 				<div class="content col s12 m8 l8 xl8">
 					
-					@foreach($posts as $post)
-						@include('blog.includes.post')
-					@endforeach
-					
-					@unless (count($posts))
-					    <p>Unfortunately, no items were returned.</p>
-					@endunless
-					
-					@if(Request::has('category'))
-						{{$posts->appends(['category' => request()->input('category')])->links()}}
-					@elseif(Request::has(['month','year']))
-						{{$posts->appends(['month' => request()->input('month'), 'year' => request()->input('year')])->links()}}
-					@elseif(Request::has('keyword'))
-						{{$posts->appends(['keyword' => request()->input('keyword')])->links()}}	
+					@if(count($posts))
+						@foreach($posts as $post)
+							@include('blog.includes.post')
+						@endforeach
+				
+						{{-- Needs refactoring --}}
+						@if(Request::has('category'))
+							{{$posts->appends(['category' => request()->input('category')])->links()}}
+						@elseif(Request::has(['month','year']))
+							{{$posts->appends(['month' => request()->input('month'), 'year' => request()->input('year')])->links()}}
+						@elseif(Request::has('keyword'))
+							{{$posts->appends(['keyword' => request()->input('keyword')])->links()}}	
+						@else
+							{{$posts->links()}}
+						@endif
+					@else 
+						<p>Unfortunately, no items were returned.</p>
 					@endif
-					{{$posts->links()}}
+
 				</div>
 			
 			@include("blog.includes.sidebar")
