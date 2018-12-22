@@ -87,6 +87,7 @@ class PostController extends Controller
             ]);
 
         $post = Post::where('slug', $slug)->first();
+        $post->slug = null;
         $post->update(request(['title', 'body', 'category_id','body']));
 
         if ($request->thumbnail) {

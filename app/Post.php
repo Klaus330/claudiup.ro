@@ -26,7 +26,6 @@ class Post extends Model
         return 'slug';
     }
 
-
     /*
     * Relationship with comments
     */
