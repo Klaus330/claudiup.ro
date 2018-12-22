@@ -47,7 +47,7 @@ Route::prefix('/posts')->group(function(){
 // Comment routes
 Route::prefix('/comments')->group(function(){
 	Route::get("/","CommentController@table")->name("comments.table");
-	Route::post("/post/{slug}","CommentController@store")->name("comments.store");
+	Route::post("/post/{post}","CommentController@store")->name("comments.store");
 	Route::delete("/delete/{id}","CommentController@destroy")->name("comments.delete");
 	Route::patch("/{id}","CommentController@validated")->name("comments.validate");
 });
@@ -60,3 +60,8 @@ Route::resource('/tag','TagController');
 Route::resource('/skill','SkillController');
 
 Route::resource('/projects','ProjectController');
+
+
+//  Api Routes
+
+Route::get('api/post/slug/{post}', 'Api\PostController@getPostSlug');

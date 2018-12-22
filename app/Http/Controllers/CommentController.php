@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -36,20 +37,25 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     *
      */
-    public function store(Request $request, $slug)
+    public function store(Post $post)
     {  
-        $this->validate(request(), [
+
+        request()->validate([
             "name" => "required|string",
             'email'=>"required|string",
             'message'=>'required'
         ]);
+                
+        Comment::store(request(), $post->id);
 
-        Comment::store(request(), $slug);
+        if(request()->wantsJson()){
+            return response("Your comment has been stored. Wait for an admin confirmation,now.",201);
+        }
 
-        return redirect()->route("blog.show", ['slug'=>$slug]);
+        return redirect()->route("blog.show", ['slug'=>$post->slug]);
     }
 
     /**

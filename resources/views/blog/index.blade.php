@@ -21,9 +21,9 @@
 			<div class="row">
 				<div class="content col s12 m8 l8 xl8">
 					
-					@if(count($posts))
+					@if(!! count($posts))
 						@foreach($posts as $post)
-							@include('blog.includes.post')
+							@include('blog.includes.post',["post" => $post])
 						@endforeach
 				
 						{{-- Needs refactoring --}}

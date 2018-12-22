@@ -17,6 +17,10 @@ class Post extends Model
     protected $with = ['category','tags'];
     protected $appends = ['commentsCount'];
 
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+
     /*
     * Relationship with comments
     */

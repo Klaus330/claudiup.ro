@@ -16,6 +16,7 @@ class BlogController extends Controller
     public function index(PostFilter $filters)
     {
         $posts = $this->getPosts($filters);
+        
         return view('blog.index', compact('posts'));
     }
 

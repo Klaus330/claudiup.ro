@@ -58,7 +58,6 @@
 							</div>
 							<!-- Excerpt Ends -->
 							@include("blog.includes.comments")
-							
 						</article>
 						<!-- Article Ends -->
 					</div>

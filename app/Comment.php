@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class Comment extends Model
 {
-    protected $fillable = ['name','email','message'];
+    protected $guarded = [];
+
 
     /**
     *   Relationship with posts
@@ -30,21 +31,19 @@ class Comment extends Model
     *  Sore a newly resource in storage
     *   @param string $slug
     */
-    public static function store(Request $request, $slug)
+    public static function store(Request $request, $id)
     {
-        $post_id = Post::where("slug", $slug)->first()->id;
-        $comment = new Comment();
-
-        $comment->name = $request['name'];
-        $comment->email = $request['email'];
-        $comment->message = $request['message'];
-        $comment->post_id = $post_id;
+        $comment = Comment::create([
+            'name' => request('name'),
+            'email' => request('email'),
+            'message' => request('message'),
+            'post_id' => $id
+        ]);
 
         if($request->has('parent_id')){
-            $comment->parent_id = $request['parent_id'];
+            $comment->update(request(['parent_id']));
         }
-        
-        $comment->save();
+     
     }
 
     public function getUsername()

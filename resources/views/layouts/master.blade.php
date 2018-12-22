@@ -24,7 +24,13 @@
     <!-- Template JS Files -->
     <script src="/js/jquery-2.2.4.min.js"></script>
     <script src="/js/modernizr.custom.js"></script>
-
+    <script type="text/javascript">
+        window.App = {!! json_encode([
+            'csrfToken' => csrf_token(),
+            'user' => Auth::user(),
+            'signedIn' => Auth::check()
+        ]) !!};
+    </script>
     @yield('head')
 </head>
 
