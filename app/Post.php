@@ -5,6 +5,7 @@ namespace App;
 use App\Category;
 use App\Tag;
 use Carbon\Carbon;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -13,13 +14,18 @@ use Intervention\Image\Facades\Image;
 
 class Post extends Model
 {
+
+    use Sluggable;
+
     protected $fillable = ['title','slug','body','category_id'];
     protected $with = ['category','tags'];
     protected $appends = ['commentsCount'];
 
-    public function getRouteKeyName(){
+    public function getRouteKeyName()
+    {
         return 'slug';
     }
+
 
     /*
     * Relationship with comments
@@ -43,6 +49,20 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 
     /**

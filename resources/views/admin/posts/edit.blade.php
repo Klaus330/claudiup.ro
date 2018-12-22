@@ -13,11 +13,6 @@
 					</div>
 					
 					<div class="form-group">
-						<label for="slug">Slug</label>
-						<input type="text" name="slug" class="form-control" value="{{$post->slug}}" required>
-					</div>
-					
-					<div class="form-group">
 						<label for="category">Category</label>
 						<select name="category_id" class="form-control" id="" required>
 							@foreach($categories as $category)

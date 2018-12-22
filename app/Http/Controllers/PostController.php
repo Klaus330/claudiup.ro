@@ -43,13 +43,12 @@ class PostController extends Controller
     {
         $this->validate(request(), [
             'title' => 'required|string',
-            'slug'=>'required|alpha_dash|unique:posts,slug',
             'category_id'=>	'required|integer',
             'thumbnail'=>'image|sometimes',
             'body'=>'required'
         ]);
 
-        $post = Post::create(request(['title','slug','thumbnail','category_id','body']));
+        $post = Post::create(request(['title','thumbnail','category_id','body']));
         
         if ($request->thumbnail) {
             $post->saveImage($request, $post);
@@ -83,13 +82,12 @@ class PostController extends Controller
     {
         $this->validate(request(), [
                 'title' => 'required|string',
-                'slug'=>'required|alpha_dash',
                 'category_id'=>	'required|integer',
                 'body'=>'required'
             ]);
 
         $post = Post::where('slug', $slug)->first();
-        $post->update(request(['title', 'body', 'slug', 'category_id','body']));
+        $post->update(request(['title', 'body', 'category_id','body']));
 
         if ($request->thumbnail) {
             $post->updateImage($request, $post);
