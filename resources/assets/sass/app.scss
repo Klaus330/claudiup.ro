@@ -36,3 +36,19 @@ blockquote{
     height:100%;
     display:block;
 }
+
+.flex{
+    display:flex;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.h-full{
+    height:100%;
+}

@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('admin.comments.partials.table', function ($view) {
-            $comments = Comment::latest()->paginate(5);
+            $comments = Comment::with('post')->latest()->paginate(5);
             $view->with(compact("comments"));
         });
     }

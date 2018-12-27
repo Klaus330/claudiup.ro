@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 	<div class="container">
 		<div class="row">
@@ -35,11 +35,12 @@
 							<wysiwyg name="description"></wysiwyg>
 						</div>
 						
-						<div class="form-group">
-							{{Form::submit('Publish', ['class' => 'btn btn-primary'])}}
+						<div class="form-group mt-3">
+							{{Form::submit('Publish', ['class' => 'btn'])}}
 						</div>
 		 
 				{!!Form::close()!!}
+
 				@include("includes.error")
 			</div>
 		</div>

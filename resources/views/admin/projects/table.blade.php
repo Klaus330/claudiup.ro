@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12" style="margin-bottom: 30px;">
-				<h1 class="float-left">Projects Table</h1>
-				<a href="{{route("projects.create")}}" class="btn btn-lg btn-success float-right">Add project</a>
+			<div class="col m12 l12 flex justify-between items-center mb-2">
+				<h1 class="">Projects Table</h1>
+				<a href="{{route("projects.create")}}" class="btn green">Add project</a>
 			</div>
 		</div>
 		<div class="row">

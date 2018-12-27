@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 	<div class="container">
@@ -34,7 +34,7 @@
 							<wysiwyg name="body"></wysiwyg>
 						</div>
 						
-						<div class="form-group">
+						<div class="form-group mt-4">
 							{{Form::submit('Publish', ['class' => 'btn btn-primary'])}}
 						</div>
 		 

@@ -41,14 +41,47 @@
     </script>
     @yield('head')
   </head>
-  <body class="cyan loaded" style="">
-      @include('includes.preloader')
-        <!-- START MAIN -->
-      
-            <div id="app" class="flex items-center h-full">
-                @yield('content')     
-            </div>
+  <body class="layout-semi-dark loaded" style="">
+    
+    @include('includes.preloader')
 
+    @include('admin.partials.header')
+
+   
+        <!-- START MAIN -->
+      <div id="main">
+        
+          <!-- START WRAPPER -->
+          <div class="wrapper">
+
+            <div id="app">
+
+            @include("admin.partials.left-sidebar")
+
+            
+            <!-- START CONTENT -->
+            <section id="content">
+              <!--start container-->
+              <div class="container">
+                
+                @yield('content')
+
+              </div>
+              <!--end container-->
+            </section>
+            <!-- END CONTENT -->
+
+           @include("admin.partials.floating-button")
+            
+            </div>
+            <!-- END WRAPPER -->
+          </div>
+      </div>
+        <!-- END MAIN -->
+        <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+        @include('admin.partials.footer')
+  
         <!-- ================================================
       Scripts
       ================================================ -->

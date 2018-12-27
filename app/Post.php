@@ -19,7 +19,6 @@ class Post extends Model
 
     protected $fillable = ['title','slug','body','category_id'];
     protected $with = ['category','tags'];
-    protected $appends = ['commentsCount'];
 
     public function getRouteKeyName()
     {
@@ -41,6 +40,7 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
 
     /*
     * Relationship with tags

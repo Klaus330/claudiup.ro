@@ -50,4 +50,8 @@ class Comment extends Model
     {
         return $this->name;
     }
+
+    public function getPostSlugAttribute(){
+        return $this->post->slug;
+    }
 }

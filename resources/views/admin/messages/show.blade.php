@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -10,6 +10,7 @@
 			<h4>Email: {{$message->email}}</h4>
 		</div>
 		<div class="col-md-12">
+			<p>Message:</p>
 			<p>{{$message->body}}</p>	
 		</div>
 	</div>

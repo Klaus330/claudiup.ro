@@ -1,7 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 	<div class="container">
+		<div class="row">
+			<h1 class="center">What is your new post going to be?</h1>
+		</div>
 		<div class="row">
 			<div class="col-md-12">
 				@include("includes.error")
@@ -38,8 +41,8 @@
 					</div>
 					
 					<div class="form-group" style="margin-top: 30px;">
-						<button class="btn btn-success btn-lg">Edit  <i class="fa fa-check"></i></button>
-						<a href="{{route('posts.table')}}" class="btn btn-danger btn-lg float-right">Cancel <i class="fa fa-times"></i></a>
+						<button class="btn green">Edit</button>
+						<a href="{{route('posts.table')}}" class="btn red darken-1">Cancel</a>
 					</div>
 				{!! Form::close() !!}
 			</div>
