@@ -1,43 +1,30 @@
 <table 
-	id="data-table-simple" 
-	class="responsive-table display dataTable striped" 
-	cellspacing="0" 
-	role="grid" 
-	aria-describedby="data-table-simple_info">
+	class="striped responsive-table" >
 
   <thead>
     <tr role="row">
-    	<th class="sorting_asc" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" ID: activate to sort column descending" style="width: 273px;">
+    	<th>
     		#
     	</th>
-    	<th class="sorting_asc" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 273px;">
+    	<th >
     		Name
     	</th>
-    	<th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 429px;">
+    	<th >
     		Message
     	</th>
-    	<th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 163px;">
+    	<th>
     		Validate
     	</th>
 
-    	<th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 163px;"></th>
+    	<th></th>
     </tr>
   </thead>
 
-  <tfoot>
-    <tr>
-    	<th rowspan="1" colspan="1">#</th>
-    	<th rowspan="1" colspan="1">Name</th>
-    	<th rowspan="1" colspan="1">Message</th>
-    	<th rowspan="1" colspan="1">Validate</th>
-    	<th rowspan="1" colspan="1"></th>
-    </tr>
-  </tfoot>
 
   <tbody>
 
 	@forelse ($comments as $comment)
-	  <tr role="row" class="odd">
+	  <tr role="row">
 	      <th scope="row">{{$comment->id}}</th>
 	      <td>{{$comment->name}}</td>
 	      <td>{{substr($comment->message, 0,100)}}</td>
@@ -75,3 +62,5 @@
 	 @endforelse
 </tbody>
 </table>
+
+{{$comments->links()}}

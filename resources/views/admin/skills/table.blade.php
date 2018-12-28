@@ -5,7 +5,8 @@
 	<div class="container">
 		<div class="row">
 		<div class="col m6 l6 s12">
-			<table class="table table-striped">
+			<h1>Skills table</h1>
+			<table class="responsive-table striped">
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>

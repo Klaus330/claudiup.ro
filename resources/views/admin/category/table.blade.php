@@ -1,10 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-	<div class="container">
+
 		<div class="row">
-			<div class="col m6 l6">
-			<table class="table table-striped">
+			<div class="col m6 l6 s12 h-full">
+			<h1>Categories Table</h1>
+			<table class="responsive-table striped ">
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>
@@ -56,5 +57,5 @@
 				@include("includes.error")
 			</div>
 		</div>
-	</div>
+
 @endsection

@@ -9,7 +9,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<table class="table table-striped">
+			<table class="responsive-table striped s12">
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>

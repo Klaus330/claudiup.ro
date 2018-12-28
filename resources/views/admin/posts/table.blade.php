@@ -2,36 +2,35 @@
 
 @section("content")
 	
-	<div class="container">
 		<div class="row">
-			<div class="col-md-12 flex justify-between items-center mb-2">
+			<div class="col m12 flex justify-between items-center mb-2">
 				<h1 class="">Posts Table</h1>
 				<a href="{{route("posts.create")}}" class="btn green">Create post</a>
 			</div>
 		</div>
-		<div class="row" id="app">
+		<div class="row s12" id="app">
 				<table 
 					id="data-table-simple" 
-					class="responsive-table display dataTable" 
+					class="responsive-table striped centered" 
 					cellspacing="0" 
 					role="grid" 
 					aria-describedby="data-table-simple_info">
 
 				  <thead>
 				    <tr role="row">
-				    	<th class="sorting_asc" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" ID: activate to sort column descending" style="width: 273px;">
+				    	<th class="sorting_asc">
 				    		#
 				    	</th>
-				    	<th class="sorting_asc" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 273px;">
+				    	<th class="sorting_asc" >
 				    		Title
 				    	</th>
-				    	<th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 429px;">
+				    	<th class="sorting">
 				    		Category
 				    	</th>
-				    	<th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 204px;">
+				    	<th class="sorting">
 				    		Slug
 				    	</th>
-				    	<th class="sorting" tabindex="0" aria-controls="data-table-simple" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 163px;">
+				    	<th class="sorting">
 				    		
 				    	</th>
 				    </tr>
@@ -75,7 +74,7 @@
 				{{$posts->links()}}
 			</div>
 		</div>
-	</div>
+
 
 @endsection
 
