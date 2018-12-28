@@ -52,11 +52,20 @@
         },
         methods:{
             onSubmit(){
-                this.form.post('/contact')
-                    .then((status) => {
-                        swal("Thanks! We will be in touch soon.",'', "success")
+            axios.post('/contact',this.form.data())
+                .catch(({response}) => {
+                     swal({
+                        title: response.data,
+                        icon: "warning",
+                        dangerMode: true,
                     });
-            }
+                     this.form.reset();
+                })
+                .then(({data}) => {
+                      swal(data,'', "success");
+                      this.form.reset();
+                });
+            },
         }
     }
 </script>

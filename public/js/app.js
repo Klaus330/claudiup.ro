@@ -40607,8 +40607,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         onSubmit: function onSubmit() {
-            this.form.post('/contact').then(function (status) {
-                swal("Thanks! We will be in touch soon.", '', "success");
+            var _this = this;
+
+            axios.post('/contact', this.form.data()).catch(function (_ref) {
+                var response = _ref.response;
+
+                swal({
+                    title: response.data,
+                    icon: "warning",
+                    dangerMode: true
+                });
+                _this.form.reset();
+            }).then(function (_ref2) {
+                var data = _ref2.data;
+
+                swal(data, '', "success");
+                _this.form.reset();
             });
         }
     }

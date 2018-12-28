@@ -17,15 +17,18 @@ class MessageController extends Controller
     */
     public function store(Request $request)
     {
-        $this->validate(request(), [
-            'name' => "required|string",
-            'email' => 'required|email',
-            'body' => "required"
-        ]);
+        try{
+            request()->validate([
+                'name' => "required|string",
+                'email' => 'required|email',
+                'body' => "required|spamfree"
+            ]);
+            Message::create(request(['name','email','body']));
+         } catch (\Exception $e) {
+            return response("Sorry, we couldn't save your message. Please, try again!",422);
+        }
         
-        Message::create(request(['name','email','body']));
-    
-        return ['message' => "Thank you!"];
+        return response("Thank you! We will be in touch soon!", 200);
     }
 
     /*
