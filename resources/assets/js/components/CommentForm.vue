@@ -36,6 +36,7 @@
             <!-- Submit Form Button Ends -->
     	</form>	
 
+        <!-- Admin Form -->
         <form role="form" method="POST" :action="'/comments/post/' + slug" @submit.prevent="submit" v-else>
            <input type="hidden" name="_token" :value="csrf">
 
@@ -67,7 +68,7 @@
             </div>
             <!-- Submit Form Button Ends -->
         </form> 
-
+        <!-- Admin Form -->
     </div>
 </template>
 
@@ -109,6 +110,13 @@
         methods:{
             submit(){
                 axios.post(`/comments/post/${this.slug}`,this.form)
+                    .catch(error => {
+                        swal({
+                            title: error.response.data,
+                            icon: "warning",
+                            dangerMode: true,
+                        });
+                    })
                     .then(response => {
                         swal(response.data,'', "success");
                     });
@@ -118,8 +126,8 @@
 
             resetFrom(){
                 this.form = {
-                    name:'',
-                    email:'',
+                    name: window.App.signedIn ? window.App.user.name : '',
+                    email:window.App.signedIn ? window.App.user.email : '',
                     message:'',
                     commentId: this.comment == undefined ? null : this.comment.id
                 }

@@ -42,20 +42,21 @@ class CommentController extends Controller
      */
     public function store(Post $post)
     {  
-
-        request()->validate([
-            "name" => "required|string",
-            'email'=>"required|string",
-            'message'=>'required'
-        ]);
-                
-        Comment::store(request(), $post->id);
-
-        if(request()->wantsJson()){
-            return response("Your comment has been stored. Wait for an admin confirmation,now.",201);
+        try {
+            request()->validate([
+                "name" => "required|string",
+                'email'=>"required|string",
+                'message'=>'required|spamfree'
+            ]);
+                    
+            Comment::store(request(), $post->id);
+            
+        } catch (\Exception $e) {
+            return response("Sorry, we couldn't save your reply. Please, try again!",422);
         }
-
-        return redirect()->route("blog.show", ['slug'=>$post->slug]);
+    
+        return response("Your comment has been stored. Wait for an admin confirmation,now.",201);
+        
     }
 
     /**

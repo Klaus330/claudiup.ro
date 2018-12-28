@@ -47,6 +47,8 @@ class AppServiceProvider extends ServiceProvider
             $comments = Comment::with('post')->latest()->paginate(5);
             $view->with(compact("comments"));
         });
+
+         \Validator::extend('spamfree', 'App\Rules\SpamFree@passes');
     }
 
     /**

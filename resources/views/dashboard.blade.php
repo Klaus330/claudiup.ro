@@ -2,8 +2,6 @@
 
 @section('content')
 
-@include("admin.partials.card")
-
     <div class="row mb-4">
         <div class="col-md-12 pt-4">
             <h5 class="pb-4"><a href="{{route('messages.table')}}">Latest Messages</a></h5>

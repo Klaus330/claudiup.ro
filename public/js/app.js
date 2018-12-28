@@ -42249,6 +42249,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['postId', 'comment'],
@@ -42287,7 +42288,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         submit: function submit() {
-            axios.post('/comments/post/' + this.slug, this.form).then(function (response) {
+            axios.post('/comments/post/' + this.slug, this.form).catch(function (error) {
+                swal({
+                    title: error.response.data,
+                    icon: "warning",
+                    dangerMode: true
+                });
+            }).then(function (response) {
                 swal(response.data, '', "success");
             });
 
@@ -42295,8 +42302,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         resetFrom: function resetFrom() {
             this.form = {
-                name: '',
-                email: '',
+                name: window.App.signedIn ? window.App.user.name : '',
+                email: window.App.signedIn ? window.App.user.email : '',
                 message: '',
                 commentId: this.comment == undefined ? null : this.comment.id
             };
