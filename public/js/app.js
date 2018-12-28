@@ -42262,8 +42262,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: window.App.signedIn ? window.App.user.email : '',
                 message: '',
                 parent_id: this.comment === undefined ? null : this.comment.id
-            },
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+
         };
     },
 
@@ -42280,22 +42280,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        axios.get('/api/post/slug/' + this.postId).then(function (response) {
-            _this.slug = response.data;
+        axios.get('/api/post/slug/' + this.postId).then(function (_ref) {
+            var data = _ref.data;
+
+            _this.slug = data;
         });
     },
 
 
     methods: {
         submit: function submit() {
-            axios.post('/comments/post/' + this.slug, this.form).catch(function (error) {
+            axios.post('/comments/post/' + this.slug, this.form).catch(function (_ref2) {
+                var response = _ref2.response;
+
                 swal({
-                    title: error.response.data,
+                    title: response.data,
                     icon: "warning",
                     dangerMode: true
                 });
-            }).then(function (response) {
-                swal(response.data, '', "success");
+            }).then(function (_ref3) {
+                var data = _ref3.data;
+
+                swal(data, '', "success");
             });
 
             this.resetFrom();
@@ -42337,11 +42343,6 @@ var render = function() {
             }
           },
           [
-            _c("input", {
-              attrs: { type: "hidden", name: "_token" },
-              domProps: { value: _vm.csrf }
-            }),
-            _vm._v(" "),
             _vm.belongsToComment
               ? _c("div", { staticClass: "input-field second-font" }, [
                   _c("input", {
@@ -42487,11 +42488,6 @@ var render = function() {
             }
           },
           [
-            _c("input", {
-              attrs: { type: "hidden", name: "_token" },
-              domProps: { value: _vm.csrf }
-            }),
-            _vm._v(" "),
             _vm.belongsToComment
               ? _c("div", { staticClass: "input-field second-font" }, [
                   _c("input", {

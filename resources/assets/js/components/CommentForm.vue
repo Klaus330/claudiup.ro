@@ -1,7 +1,7 @@
 <template>
     <div class="comments-form mb-5">
     	<form role="form" method="POST" :action="'/comments/post/' + slug" @submit.prevent="submit" v-if="! signedIn">
-    	   <input type="hidden" name="_token" :value="csrf">
+    	   
 
     		<div class="input-field second-font" v-if="belongsToComment">
                 <input id="name" name="parent_id" type="hidden" class="validate" required v-model="form.commentId">
@@ -38,7 +38,7 @@
 
         <!-- Admin Form -->
         <form role="form" method="POST" :action="'/comments/post/' + slug" @submit.prevent="submit" v-else>
-           <input type="hidden" name="_token" :value="csrf">
+           
 
             <div class="input-field second-font" v-if="belongsToComment">
                 <input id="name" name="parent_id" type="hidden" class="validate" required v-model="form.parent_id">
@@ -85,7 +85,7 @@
                     message:'',
                     parent_id: this.comment === undefined ? null : this.comment.id
                 },
-                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                
             };
         },
 
@@ -102,23 +102,23 @@
         created(){
 
             axios.get(`/api/post/slug/${this.postId}`)
-                .then(response => {
-                    this.slug = response.data;
+                .then(({data}) => {
+                    this.slug = data;
             });
         },
 
         methods:{
             submit(){
                 axios.post(`/comments/post/${this.slug}`,this.form)
-                    .catch(error => {
+                    .catch(({response}) => {
                         swal({
-                            title: error.response.data,
+                            title: response.data,
                             icon: "warning",
                             dangerMode: true,
                         });
                     })
-                    .then(response => {
-                        swal(response.data,'', "success");
+                    .then(({data})=> {
+                        swal(data,'', "success");
                     });
 
                 this.resetFrom();
