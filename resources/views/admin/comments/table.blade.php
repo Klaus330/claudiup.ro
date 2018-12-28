@@ -10,6 +10,7 @@
 		</div>
 		<div class="row">
 			@include("admin.comments.partials.table")
+			{{$comments->links()}}
 		</div>
 	</div>
 

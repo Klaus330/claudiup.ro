@@ -20,7 +20,7 @@ class CommentController extends Controller
      */
     public function table()
     {
-        $comments = Comment::latest();
+        $comments = Comment::latest()->paginate(5);
         return view("admin.comments.table", compact('comments'));
     }
 

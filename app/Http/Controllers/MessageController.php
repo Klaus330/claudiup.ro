@@ -36,7 +36,7 @@ class MessageController extends Controller
     */
     public function table()
     {
-        $messages = Message::latest()->paginate(15);
+        $messages = Message::latest()->paginate(5);
         return view('admin.messages.table', compact('messages'));
     }
 

@@ -9,6 +9,7 @@
 		</div>
 		<div class="row">
 			@include("admin.messages.partials.table")
+			{{$messages->links()}}
 		</div>
 	</div>
 @endsection

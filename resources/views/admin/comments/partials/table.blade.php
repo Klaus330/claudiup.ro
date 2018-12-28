@@ -62,5 +62,3 @@
 	 @endforelse
 </tbody>
 </table>
-
-{{$comments->links()}}
