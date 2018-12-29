@@ -29,14 +29,14 @@
 				      <td>{{$project->type}}</td>
 				      <td>{{$project->client}}</td>
 				      <td>
-				      	<ul class="list-inline">
+				      	<ul class="list-inline flex">
 				      		<li class="list-inline-item">
-				      			<a class="btn btn-success btn-sm" href="{{route('projects.edit',['id' => $project->id])}}"><i class="fa fa-edit"></i></a>
+				      			<a class="btn-floating green" href="{{route('projects.edit',['id' => $project->id])}}"><i class="material-icons">edit</i></a>
 				      		</li>
 				      		<li class="list-inline-item">
 				      			{!! Form::open(['method'=>'DELETE', 'route' => ["projects.destroy", $project->id]]) !!}
 		                        {{ method_field('DELETE') }}﻿
-									<button class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
+									<button class="btn-floating red darken-1 "><i class="material-icons">delete</i></button>
 								{!!Form::close() !!}
 				      		</li>
 						</ul>
