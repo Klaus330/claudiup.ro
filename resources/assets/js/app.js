@@ -11,6 +11,7 @@ Vue.component('delete-button', require('./components/DeleteButton.vue'));
 Vue.component('book', require('./components/Book.vue'));
 Vue.component('comment', require('./components/Comment.vue'));
 Vue.component('comment-form', require('./components/CommentForm.vue'));
+Vue.component('floating-button', require('./components/FloatingButton.vue'));
 
 new Vue({
     el: '#app',
