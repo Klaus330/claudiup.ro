@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<div class="form-group">
+		<div>
 			<label for="type">Type:</label>
-			<select name="type" class="form-control" v-model="selected" required>
-				<template v-if="item != undefined">
+			<select name="type" class="browser-default" v-model="type" @change="onChange(type)" required>
+				<template v-if="item">
 					<option :value="project.type" v-for="project in projects" :selected="isSelected(project)">{{project.type}}</option>
 				</template>
 				<template v-else>
@@ -12,25 +12,25 @@
 			</select>
 		</div>
 		
-		<div class="form-group" v-if=" selected == 'book' ">
+		<div class="form-group" v-if="isType('book')">
 			<label for="pdf">Book:</label>
-			<input type="file" class="book" name="pdf"  v-if="selected == 'book'" required/>
+			<input type="file" class="book" name="pdf"  v-if="isType('book')" required/>
 		</div>
 
-		<div class="form-group" v-if=" selected == 'image' ">
+		<div class="form-group" v-if="isType('image')">
 			<label for="image">Image:</label>
-			<input type="file" class="image" name="image"  v-if="selected == 'image'" required/>
+			<input type="file" class="image" name="image"  v-if="isType('image')" required/>
 		</div>
 
-		<div class="form-group" v-if=" selected == 'slide' ">
+		<div class="form-group" v-if="isType('slide')">
 			<label for="slide">Images:</label>
-			<input type="file" class="image" name="slide[]"  multiple="multiple" v-if="selected == 'slide'"  required/>
+			<input type="file" class="image" name="slide[]"  multiple="multiple" v-if="isType('slide')"  required/>
 		</div>
 
-		<div class="form-group" v-if=" selected == 'youtube' ">
+		<div class="form-group" v-if="isType('youtube')">
 			<label for="url">URL:</label>
-			<template v-if="item != undefined"><input type="text" name="url" class="form-control url"  :value="item.url" required></template>
-			<template  v-else="selected == 'youtube'"><input type="text" name="url" class="form-control url" required></template>
+			<template v-if="item"><input type="text" name="url" class="form-control url"  :value="item.url" required></template>
+			<template  v-else="isType('youtube')"><input type="text" name="url" class="form-control url" required></template>
 		</div>
 	</div>
 </template>
@@ -46,18 +46,35 @@
 						{type: 'slide'},
 						{type: 'book'}
 					],
+					type:"",
+					hasConfigured:false,
 					selected: ""
 				}
 			},
+
+			created(){
+				this.type = this.item ? this.item.type : '';
+			},
+
 			methods:{
 				isSelected(project){
-					if(project.type == this.item.type){
-						console.log('hit');
+					if(!this.hasConfigured)
+					{	
+						if(project.type != this.item.type)
+							return false;
+						
+						this.selected = project.type;	
+						this.hasConfigured = true;
 						return true;
-					}else{
-						console.log('hit2');
-						return false;
 					}
+				},
+
+				isType(type){
+					return this.selected == type;
+				},
+
+				onChange(type){
+					this.selected = type;
 				}
 			}
 	}

@@ -18,14 +18,14 @@
 							{{Form::text('client', null, ['class' => 'form-control','required'=>''])}}
 						</div>
 						
-						<project-type-list ></project-type-list>
+						<project-type-list></project-type-list>
 						
-						<div class="form-group">
+						<div class="form-group mb-2">
 							{{Form::label('skills','Technologies:')}}
-							<multiple-select name="skills[]" :items="{{json_encode($skills)}}" classes="form-control select2"></multiple-select>
+							<multiple-select name="skills[]" :items="{{json_encode($skills)}}" classes="select2"></multiple-select>
 						</div>
 						
-						<div class="form-group">
+						<div class="form-group mb-2">
 							{{Form::label('thumbnail', 'Thumbnail')}}
 							{{Form::file('thumbnail',['required' => ''])}}
 						</div>
@@ -49,6 +49,8 @@
 
 @section('scripts')
 	<script type="text/javascript">
-	    $(".select2").select2();
+	   $(function(){
+	   		$(".select2").select2();
+	   });
 	</script>
 @endsection

@@ -19,12 +19,12 @@
 							{{Form::select('category_id',$categories,null,['class'=>'form-control'])}}
 						</div>
 
-						<div class="form-group">
+						<div class="form-group mb-2">
 							{{Form::label('tags','Tag:')}}
-							<multiple-select name="tags[]" :items="{{json_encode($tags)}}" classes="form-control select2"></multiple-select>
+							<multiple-select name="tags[]" :items="{{json_encode($tags)}}" classes="select2"></multiple-select>
 						</div>
 						
-						<div class="form-group">
+						<div class="form-group mb-2">
 							{{Form::label('thumbnail', 'Thumbnail')}}
 							{{Form::file('thumbnail',['required' => ''])}}
 						</div>
@@ -34,7 +34,7 @@
 							<wysiwyg name="body"></wysiwyg>
 						</div>
 						
-						<div class="form-group mt-4">
+						<div class="form-group mt-4 mb-2">
 							{{Form::submit('Publish', ['class' => 'btn btn-primary'])}}
 						</div>
 		 
@@ -48,6 +48,8 @@
 
 @section('scripts')
 	<script type="text/javascript">
-	    $(".select2").select2();
+		$(function(){
+			$(".select2").select2();		
+		})
 	</script>
 @endsection

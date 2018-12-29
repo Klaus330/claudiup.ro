@@ -41042,19 +41042,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	data: function data() {
 		return {
 			projects: [{ type: 'image' }, { type: 'youtube' }, { type: 'slide' }, { type: 'book' }],
+			type: "",
+			hasConfigured: false,
 			selected: ""
 		};
 	},
+	created: function created() {
+		this.type = this.item ? this.item.type : '';
+	},
+
 
 	methods: {
 		isSelected: function isSelected(project) {
-			if (project.type == this.item.type) {
-				console.log('hit');
+			if (!this.hasConfigured) {
+				if (project.type != this.item.type) return false;
+
+				this.selected = project.type;
+				this.hasConfigured = true;
 				return true;
-			} else {
-				console.log('hit2');
-				return false;
 			}
+		},
+		isType: function isType(type) {
+			return this.selected == type;
+		},
+		onChange: function onChange(type) {
+			this.selected = type;
 		}
 	}
 });
@@ -41068,7 +41080,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "form-group" }, [
+    _c("div", [
       _c("label", { attrs: { for: "type" } }, [_vm._v("Type:")]),
       _vm._v(" "),
       _c(
@@ -41078,30 +41090,35 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.selected,
-              expression: "selected"
+              value: _vm.type,
+              expression: "type"
             }
           ],
-          staticClass: "form-control",
+          staticClass: "browser-default",
           attrs: { name: "type", required: "" },
           on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.selected = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.type = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              function($event) {
+                _vm.onChange(_vm.type)
+              }
+            ]
           }
         },
         [
-          _vm.item != undefined
+          _vm.item
             ? _vm._l(_vm.projects, function(project) {
                 return _c(
                   "option",
@@ -41124,11 +41141,11 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _vm.selected == "book"
+    _vm.isType("book")
       ? _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "pdf" } }, [_vm._v("Book:")]),
           _vm._v(" "),
-          _vm.selected == "book"
+          _vm.isType("book")
             ? _c("input", {
                 staticClass: "book",
                 attrs: { type: "file", name: "pdf", required: "" }
@@ -41137,11 +41154,11 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.selected == "image"
+    _vm.isType("image")
       ? _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "image" } }, [_vm._v("Image:")]),
           _vm._v(" "),
-          _vm.selected == "image"
+          _vm.isType("image")
             ? _c("input", {
                 staticClass: "image",
                 attrs: { type: "file", name: "image", required: "" }
@@ -41150,11 +41167,11 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.selected == "slide"
+    _vm.isType("slide")
       ? _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "slide" } }, [_vm._v("Images:")]),
           _vm._v(" "),
-          _vm.selected == "slide"
+          _vm.isType("slide")
             ? _c("input", {
                 staticClass: "image",
                 attrs: {
@@ -41168,14 +41185,14 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.selected == "youtube"
+    _vm.isType("youtube")
       ? _c(
           "div",
           { staticClass: "form-group" },
           [
             _c("label", { attrs: { for: "url" } }, [_vm._v("URL:")]),
             _vm._v(" "),
-            _vm.item != undefined
+            _vm.item
               ? [
                   _c("input", {
                     staticClass: "form-control url",
@@ -41276,6 +41293,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['name', 'items', 'selected', 'classes'],
 
+	computed: {
+		style: function style() {
+			var defaults = ['browser-default'];
+
+			defaults.push(this.classes);
+
+			return defaults;
+		}
+	},
+
 	methods: {
 		selectedItem: function selectedItem(item) {
 			for (var i = 0; i < this.selected.length; i++) {
@@ -41300,7 +41327,7 @@ var render = function() {
     _c(
       "select",
       {
-        class: _vm.classes,
+        class: _vm.style,
         attrs: { name: _vm.name, multiple: "", required: "" }
       },
       [

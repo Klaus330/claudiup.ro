@@ -23,7 +23,7 @@
 
 						<div class="form-group">
 							{{Form::label('skills','Technologies:')}}
-							<multiple-select name="skills[]" :items="{{json_encode($skills)}}" :selected="{{json_encode($project->skills)}}" classes="form-control select2"></multiple-select>
+							<multiple-select name="skills[]" :items="{{json_encode($skills)}}" :selected="{{json_encode($project->skills)}}" classes="select2"></multiple-select>
 						</div>
 						
 						<div class="form-group">
@@ -52,6 +52,8 @@
 
 @section('scripts')
 	<script type="text/javascript">
-	    $(".select2").select2();
+		$(function(){
+	    	$(".select2").select2();
+	    });
 	</script>
 @endsection

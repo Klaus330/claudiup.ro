@@ -1,6 +1,6 @@
 <template>
 		<div>
-			<select :class="classes" :name="name" multiple required >
+			<select :class="style" :name="name" multiple required>
 				<template v-if="selected != undefined">  
 					<option   :value="index" v-for="( item, index ) in items" v-text="item" :selected="selectedItem(item)" ></option>
 				</template>
@@ -15,6 +15,16 @@
 <script>
 	export default{
 		props:['name','items','selected','classes'],
+
+		computed:{
+			style(){
+				let defaults =['browser-default'];
+
+				defaults.push(this.classes);
+				
+				return defaults;
+			}
+		},
 
 		methods:{
 			selectedItem(item){

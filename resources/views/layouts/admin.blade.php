@@ -26,8 +26,6 @@
     <link href="/css/flag-icon.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.12.1/trix.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/select2.min.css">
-
     <script src="{{ asset('js/app.js') }}" defer></script>    
      <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -99,6 +97,8 @@
         <!--custom-script.js - Add your own theme custom JS-->
         <script type="text/javascript" src="/js/custom-script.js"></script>
         {{-- <script type="text/javascript" src="/js/dashboard-ecommerce.js"></script> --}}
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+
         @yield('scripts')
 
   <div class="hiddendiv common"></div><div class="drag-target" data-sidenav="slide-out" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
