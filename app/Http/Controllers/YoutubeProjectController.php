@@ -50,7 +50,7 @@ class YoutubeProjectController extends Controller
         $project->description = request("description");
 
         $url = $project->formatUrl(request('url'));
-    
+        
         $project->url = $url;
         if (request('thumbnail')) {
             $project->saveThumbnail($request, $project);
