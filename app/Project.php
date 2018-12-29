@@ -98,7 +98,7 @@ class Project extends Model
     public function formatUrl($url)
     {
         $string     = $url;
-        $search     = '#(.*?)(?:href="https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com(?:/embed/|/v/|/watch?.*?v=))([\w\-]{10,12}).*#x';
+        $search     = '#(.*?)(?:href="https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch?.*?v=))([\w\-]{10,12}).*#x';
         $replace    = 'http://www.youtube.com/embed/$2';
         $url        = preg_replace($search, $replace, $string);
         return $url;

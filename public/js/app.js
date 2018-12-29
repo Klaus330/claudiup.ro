@@ -41191,7 +41191,7 @@ var render = function() {
           "div",
           { staticClass: "form-group" },
           [
-            _c("label", { attrs: { for: "url" } }, [_vm._v("URL:")]),
+            _vm._m(0),
             _vm._v(" "),
             _vm.item
               ? [
@@ -41213,7 +41213,18 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "url" } }, [
+      _vm._v("URL "),
+      _c("small", [_vm._v("(accepts only youtube links)")]),
+      _vm._v(":")
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

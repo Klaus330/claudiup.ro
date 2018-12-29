@@ -28,7 +28,7 @@
 		</div>
 
 		<div class="form-group" v-if="isType('youtube')">
-			<label for="url">URL:</label>
+			<label for="url">URL <small>(accepts only youtube links)</small>:</label>
 			<template v-if="item"><input type="text" name="url" class="form-control url"  :value="item.url" required></template>
 			<template  v-else="isType('youtube')"><input type="text" name="url" class="form-control url" required></template>
 		</div>

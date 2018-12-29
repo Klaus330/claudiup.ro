@@ -8,9 +8,9 @@
 			<div class="col-md-12">
 				{!!Form::open(['route' => 'projects.store','files' => true,'id'=>'root'])!!}
 
-						<div class="form-group">
+						<div class="group">
 							{{Form::label('title','Title:')}}
-							{{Form::text('title', null, ['class' => 'form-control','required'=>''])}}
+							{{Form::text('title', null, ['class' => 'control','required'=>''])}}
 						</div>
 
 						<div class="form-group">

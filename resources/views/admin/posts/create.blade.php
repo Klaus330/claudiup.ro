@@ -16,7 +16,7 @@
 						
 						<div class="form-group">
 							{{Form::label('category_id','Category:')}}
-							{{Form::select('category_id',$categories,null,['class'=>'form-control'])}}
+							{{Form::select('category_id',$categories,null,['class'=>'select2 browser-default'])}}
 						</div>
 
 						<div class="form-group mb-2">
