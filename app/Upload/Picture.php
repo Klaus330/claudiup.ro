@@ -7,23 +7,16 @@ use Intervention\Image\Facades\Image;
 
 class Picture
 {
-	
-	public static function store(string $file, string $path, $width = 543, $height = 400)
+	public static function store($file, string $path, $width = 543, $height = 400)
 	{
-		$image = request()->file($file);
-		$filename = static::getFilename($image);
+		if(gettype($file) == 'string')
+		{
+			$file = request()->file($file);
+		}
 
-        $location = public_path("{$path}/{$filename}");
-        Image::make($image)->fit($width, $height)->save($location);
-
-        return $filename;
-	}
-
-	public static function storeImages($file, string $path, $width = 543, $height = 400)
-	{
 		$filename = static::getFilename($file);
 
-        $location = public_path("{$path}/{$filename}");        
+        $location = public_path("{$path}/{$filename}");
         Image::make($file)->fit($width, $height)->save($location);
 
         return $filename;

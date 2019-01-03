@@ -128,6 +128,7 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $project = Project::find($id);
+        
         switch ($project->type) {
             case 'image':
                 ImageProjectController::delete($project);

@@ -62,7 +62,7 @@ class Project extends Model
     {
         ProjectPicture::create([
             'project_id' => $project->id,
-            'location' => Picture::storeImages($image, $path = "images/projects")
+            'location' => Picture::store($image, $path = "images/projects")
         ]);
 
         sleep(1); // makes a delay between photos so they don't overwrite
