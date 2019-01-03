@@ -70,7 +70,7 @@ class YoutubeProjectController extends Controller
     public static function delete(Project $project)
     {
         $project->skills()->detach(request('skills'));
-        File::delete(public_path("images/thumbnail/projects/" . $project->thumbnail));
+        File::delete(public_path("images/thumbnail/projects/{$project->thumbnail}"));
         $project->delete();
     }
 }

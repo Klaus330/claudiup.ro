@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectPicture extends Model
 {
     protected $table = 'project_images';
+    protected $guarded = [];
 
     /**
     * Relationship with Projects

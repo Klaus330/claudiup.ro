@@ -92,9 +92,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        $this->validate(request(), [
+        request()->validate([
             "title" => "required|string",
             'client'=>"required|string",
             'type'=>'required|string',
@@ -117,16 +117,15 @@ class ProjectController extends Controller
                 BookProjectController::update($request, $project);
                 break;
         }
-        return redirect()->route("projects.table");
+        return redirect()->route("projects.index");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
         $project = Project::find($id);
         switch ($project->type) {
@@ -143,6 +142,7 @@ class ProjectController extends Controller
                 BookProjectController::delete($project);
                 break;
         }
+
         return back();
     }
 }
