@@ -25,7 +25,7 @@
 				  	 <tr>
 				      <th scope="row">{{$project->id}}</th>
 				      <td>{{$project->title}}</td>
-				      <td>{{substr($project->description,50)}}</td>
+				      <td>{{substr($project->description,0,50)}}</td>
 				      <td>{{$project->type}}</td>
 				      <td>{{$project->client}}</td>
 				      <td>
