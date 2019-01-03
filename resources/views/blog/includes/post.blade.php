@@ -1,13 +1,15 @@
 <!-- Article Starts -->
 <article>
 	<a href="{{route("blog.show",['slug'=>$post->slug])}}"><h4>{{$post->title}}</h4></a>
-	<!-- Figure Starts -->
-	<figure class="blog-figure">
-		<a href="{{route("blog.show",['slug'=>$post->slug])}}">
-			<img class="responsive-img" src="/images/thumbnail/{{$post->thumbnail}}" alt="">
-		</a>
-	</figure>
-	<!-- Figure Ends -->
+	@if($post->thumbnail)
+		<!-- Figure Starts -->
+		<figure class="blog-figure">
+			<a href="{{route("blog.show",['slug'=>$post->slug])}}">
+				<img class="responsive-img" src="/images/thumbnail/{{$post->thumbnail}}" alt="">
+			</a>
+		</figure>
+		<!-- Figure Ends -->
+	@endif
 	<!-- Excerpt Starts -->
 	<div class="blog-excerpt">
 		<p class="second-font">{{substr(strip_tags($post->title),0,50)}}...</p>
