@@ -12,7 +12,7 @@
 	@endif
 	<!-- Excerpt Starts -->
 	<div class="blog-excerpt">
-		<p class="second-font">{{substr(strip_tags($post->title),0,50)}}...</p>
+		<p class="second-font">{{substr(strip_tags($post->body),0,150)}}...</p>
 		<a href="{{route("blog.show",['slug'=>$post->slug])}}" class="col s12 m4 l4 xl4 waves-effect waves-light btn readmore font-weight-500">
 			Read more 
 		</a>

@@ -26,7 +26,7 @@
 						
 						<div class="form-group mb-2">
 							{{Form::label('thumbnail', 'Thumbnail')}}
-							{{Form::file('thumbnail',['required' => ''])}}
+							{{Form::file('thumbnail')}}
 						</div>
 
 						<div class="form-group">
