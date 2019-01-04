@@ -83,17 +83,17 @@
                     <div class="resume-list col l4">
                         <div class="resume-list-item is-active" data-index="0" id="resume-list-item-0">
                             <div class="resume-list-item-inner">
-                                <h6 class="resume-list-item-title uppercase"><i class="fa fa-briefcase"></i> Experience</h6>
+                                <h6 class="resume-list-item-title uppercase"><i class="fa fa-star"></i> Skills</h6>
                             </div>
                         </div>
                         <div class="resume-list-item" data-index="1" id="resume-list-item-1">
                             <div class="resume-list-item-inner">
-                                <h6 class="resume-list-item-title uppercase"><i class="fa fa-graduation-cap"></i> Education</h6>
+                                <h6 class="resume-list-item-title uppercase"><i class="fa fa-briefcase"></i> Experience</h6>
                             </div>
                         </div>
                         <div class="resume-list-item" data-index="2" id="resume-list-item-2">
                             <div class="resume-list-item-inner">
-                                <h6 class="resume-list-item-title uppercase"><i class="fa fa-star"></i> Skills</h6>
+                                <h6 class="resume-list-item-title uppercase"><i class="fa fa-graduation-cap"></i> Education</h6>
                             </div>
                         </div>
                     </div>
@@ -102,9 +102,9 @@
 					<!-- Resume Content Starts -->
                     <div class="col s12 m12 l8 resume-cards-container" style="    padding-bottom: 400px;">
                         <div class="resume-cards">
-						    @include("pages.includes.about.experience")
+						    @include("pages.includes.about.skills")
+                            @include("pages.includes.about.experience")
 					        @include("pages.includes.about.education")
-							@include("pages.includes.about.skills")
                         </div>
                     </div>
 					<!-- Resume Content Ends -->

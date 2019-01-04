@@ -1,5 +1,5 @@
 <!-- Skills Starts -->
-<div class="resume-card resume-card-2" data-index="2">
+<div class="resume-card resume-card-0" data-index="0">
 	<!-- Skills Header Title Starts -->
     <div class="resume-card-header">
         <div class="resume-card-name"><i class="fa fa-star"></i> Skills</div>

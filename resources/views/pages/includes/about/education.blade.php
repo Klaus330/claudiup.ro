@@ -1,5 +1,5 @@
 <!-- Education Starts -->
-<div class="resume-card resume-card-1" data-index="1">
+<div class="resume-card resume-card-2" data-index="2">
 	<!-- Education Header Title Starts -->
     <div class="resume-card-header">
         <div class="resume-card-name"><i class="fa fa-graduation-cap"></i> Education</div>
