@@ -34,6 +34,8 @@ class Picture
         Image::make($image)->fit($width, $height)->save($location);
       
         static::delete($oldlocation = public_path("{$path}/{$oldfilename}"));
+        
+        return $filename;
 	}
 
 	public static function getFilename($file)

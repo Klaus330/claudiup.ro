@@ -42825,8 +42825,7 @@ var staticRenderFns = [
           "a",
           {
             staticClass:
-              "btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow",
-            attrs: { href: "/dashboard" }
+              "btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow"
           },
           [_c("i", { staticClass: "material-icons" }, [_vm._v("add")])]
         ),

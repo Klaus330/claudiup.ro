@@ -1,7 +1,7 @@
 <template>
 	<!-- Floating Action Button -->
 	<div class="fixed-action-btn " style="bottom: 50px; right: 19px;">
-	  <a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow" href="/dashboard">
+	  <a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow"	>
 	    <i class="material-icons">add</i>
 	  </a>
 	  <ul>

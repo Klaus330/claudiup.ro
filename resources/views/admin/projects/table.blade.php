@@ -30,7 +30,7 @@
 				      <td>{{$project->client}}</td>
 				      <td>
 				      	<ul class="list-inline flex">
-				      		<li class="list-inline-item">
+				      		<li class="list-inline-item mr-4">
 				      			<a class="btn-floating green" href="{{route('projects.edit',['id' => $project->id])}}"><i class="material-icons">edit</i></a>
 				      		</li>
 				      		<li class="list-inline-item">

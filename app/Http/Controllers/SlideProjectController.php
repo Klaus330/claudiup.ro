@@ -44,17 +44,12 @@ class SlideProjectController extends Controller
     */
     public static function update(Request $request, Project $project)
     {
-        $project->title = request('title');
-        $project->client = request('client');
-        $project->type = request('type');
-        $project->description = request("description");
+        $project->update(request(['title','description','client','type']));
 
         if (request('thumbnail')) {
             $project->saveThumbnail($request, $project);
         }
-
-        $project->save();
-
+        
         if (request('slide')) {
             $project->deletePictures($project);
             foreach (request('slide') as $image) {
@@ -62,7 +57,7 @@ class SlideProjectController extends Controller
             }
         }
 
-
+        $project->save();
         $project->skills()->sync(request('skills'), false);
     }
 
@@ -75,8 +70,6 @@ class SlideProjectController extends Controller
     public static function delete(Project $project)
     {
         $project->deletePictures($project);
-        $project->skills()->detach(request('skills'));
-        File::delete(public_path("images/thumbnail/projects/" . $project->thumbnail));
-        $project->delete();
+        $project->eliminate();
     }
 }

@@ -11,7 +11,8 @@ use App\Upload\Picture;
 
 class Project extends Model
 {
-    protected $with=['skills','images','pdf'];
+    protected $with = ['skills','images','pdf'];
+    protected $fillable = ['title','client','type','description'];
 
     /*
     * Relationship with skills
@@ -29,6 +30,9 @@ class Project extends Model
         return $this->hasMany(ProjectPicture::class);
     }
 
+    /*
+    * Pivot table between Projects and PdfFiles
+    */
     public function pdf()
     {
         return $this->hasOne(PdfFile::class, 'project_id');
@@ -39,7 +43,7 @@ class Project extends Model
     */
     public function saveThumbnail(Request $request, Project $project)
     {
-        $filename = Picture::store("thumbnail", "images/thumbnail/projects/");
+        $filename = Picture::store("thumbnail", "images/thumbnail/projects");
         $project->thumbnail = $filename;
     }
 
@@ -48,8 +52,8 @@ class Project extends Model
     */
     public function updateThumbnail(Request $request, Project $project)
     {
-        $filename = Picture::update($project, "thumbnail");
-
+        $filename = Picture::update($project, "thumbnail",'/images/thumbnail/projects');
+        
         $project->thumbnail = $filename;
 
         $project->save();
@@ -85,5 +89,12 @@ class Project extends Model
         $replace    = 'http://www.youtube.com/embed/$2';
         $url        = preg_replace($search, $replace, $string);
         return $url;
+    }
+
+    public function eliminate()
+    {    
+        $this->skills()->detach(request('skills'));
+        Picture::delete("images/thumbnail/projects/{$this->thumbnail}");
+        $this->delete();   
     }
 }

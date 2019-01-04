@@ -25,17 +25,15 @@ class BookProjectController extends Controller
         $project->saveThumbnail($request, $project);
         $project->save();
         $project->skills()->sync(request('skills'), false);
-        $pdf = PdfFile::store($request, $project);
+        
+        PdfFile::store($request, $project);
         
         return redirect()->route("projects.table");
     }
 
     public static function update(Request $request, Project $project)
     {
-        $project->title = request('title');
-        $project->client = request('client');
-        $project->type = request('type');
-        $project->description = request("description");
+        $project->update(request(['title','client','description','type']));
 
         if (request('thumbnail')) {
             $project->saveThumbnail($request, $project);
@@ -50,9 +48,7 @@ class BookProjectController extends Controller
    
     public static function delete(Project $project)
     {
-        $project->skills()->detach(request('skills'));
-        File::delete(public_path("/images/thumbnail/projects/" . $project->thumbnail));
-        File::delete(public_path('/files/uploads/' . $project->pdf->location));
-        $project->delete();
+        PdfFile::delete("/files/uploads/{$project->pdf->location}");
+        $project->eliminate();
     }
 }

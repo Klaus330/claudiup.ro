@@ -28,6 +28,10 @@ class ProjectController extends Controller
         return view("admin.projects.table", compact('projects'));
     }
 
+    public function show(){
+        return redirect('/');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -52,7 +56,7 @@ class ProjectController extends Controller
             'client'=>"required|string",
             'type'=>'required|string',
             'description'=>'required|string',
-            'thumbnail' =>  'image|sometimes',
+            'thumbnail' =>  'image|required',
         ]);
         
         switch (request('type')) {
