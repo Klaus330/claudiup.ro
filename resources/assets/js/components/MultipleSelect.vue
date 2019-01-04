@@ -32,7 +32,6 @@
 					if(this.selected[i].name == item){
 						return true;
 					}
-					return false;
 				}
 			}
 		}

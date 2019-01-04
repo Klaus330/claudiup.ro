@@ -41321,7 +41321,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				if (this.selected[i].name == item) {
 					return true;
 				}
-				return false;
 			}
 		}
 	}
