@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Response;
 use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
@@ -17,15 +19,15 @@ class MessageController extends Controller
     */
     public function store(Request $request)
     {
-        try{
+        try {
             request()->validate([
                 'name' => "required|string",
                 'email' => 'required|email',
                 'body' => "required|spamfree"
             ]);
             Message::create(request(['name','email','body']));
-         } catch (\Exception $e) {
-            return response("Sorry, we couldn't save your message. Please, try again!",422);
+        } catch (\Exception $e) {
+            return response("Sorry, we couldn't save your message. Please, try again!", 422);
         }
         
         return response("Thank you! We will be in touch soon!", 200);
@@ -43,10 +45,26 @@ class MessageController extends Controller
     /*
     * Display a single message in admin dashbord
     */
-    public function show($id)
+    public function show(Message $message)
     {
-        $message = Message::find($id);
         return view('admin.messages.show', compact('message'));
+    }
+
+
+    /*
+    * Display a single message in admin dashbord
+    */
+    public function replyForm(Message $message)
+    {
+        return view("admin.messages.reply", compact('message'));
+    }
+
+    public function reply(Message $message)
+    {
+        $reply = new Response($message,request('body'));
+        Mail::to($message->email)->send($reply);
+        
+        return redirect()->route('messages.table');    
     }
 
     /*

@@ -11,14 +11,17 @@ class Response extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $reply;
+    public $userMessage;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($userMessage,$reply)
     {
-        //
+        $this->userMessage = $userMessage;
+        $this->reply = $reply;
     }
 
     /**
