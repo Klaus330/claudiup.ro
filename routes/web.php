@@ -12,7 +12,7 @@
 */
 
 Route::view('/','home.index')->name('home');
-
+Route::view('/home','home.index');
 
 /**
 * Pages Routes

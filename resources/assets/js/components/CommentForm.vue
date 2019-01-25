@@ -29,7 +29,7 @@
             <!-- Comment Textarea Ends -->
     		<!-- Submit Form Button Starts -->
             <div class="col s12 m12 l6 xl6 submit-form">
-                <button class="btn font-weight-500" type="submit" name="send">
+                <button class="btn font-weight-500" type="submit" name="send" >
     				Add comment <i class="fa fa-comment"></i>
     			</button>
             </div>
@@ -62,7 +62,7 @@
             <!-- Comment Textarea Ends -->
             <!-- Submit Form Button Starts -->
             <div class="col s12 m12 l6 xl6 submit-form">
-                <button class="btn font-weight-500" type="submit" name="send">
+                <button class="btn font-weight-500" type="submit" name="send" :disabled="canSubmit">
                     Add comment <i class="fa fa-comment"></i>
                 </button>
             </div>

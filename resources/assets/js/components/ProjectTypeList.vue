@@ -47,7 +47,7 @@
 						{type: 'book'}
 					],
 					type:"",
-					hasConfigured:false,
+					configured:false,
 					selected: ""
 				}
 			},
@@ -58,13 +58,13 @@
 
 			methods:{
 				isSelected(project){
-					if(!this.hasConfigured)
+					if(!this.configured)
 					{	
 						if(project.type != this.item.type)
 							return false;
 						
 						this.selected = project.type;	
-						this.hasConfigured = true;
+						this.configured = true;
 						return true;
 					}
 				},

@@ -26,7 +26,7 @@
             <!-- Message Textarea Ends -->
             <!-- Submit Form Button Starts -->
             <div class="col s12 m12 l4 xl4 submit-form">
-                <button class="btn font-weight-500" type="submit" name="send" :disabled="form.errors.any()">
+                <button class="btn font-weight-500" type="submit" name="send" :disabled="canSend">
                     Send Message <i class="fa fa-send"></i>
                 </button>
             </div>
@@ -48,22 +48,37 @@
                     email:'',
                     body:''
                 }),
+                submitted:false
+            }
+        },
+        computed:{
+            canSend(){
+                let errors = this.form.errors.any();
+
+                return errors ? errors : this.submitted;
             }
         },
         methods:{
             onSubmit(){
+            this.submitted = true;
             axios.post('/contact',this.form.data())
                 .catch(({response}) => {
                      swal({
                         title: response.data,
                         icon: "warning",
                         dangerMode: true,
-                    });
+                     });
                      this.form.reset();
+                     this.submitted = false;    
                 })
                 .then(({data}) => {
-                      swal(data,'', "success");
+                      swal({
+                          title: data, 
+                          type: "success",
+                      });
+                      this.submitted = false;
                       this.form.reset();
+                      
                 });
             },
         }
