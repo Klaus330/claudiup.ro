@@ -56,11 +56,11 @@
                     </div>
                     <div class="col s12 m12 l6 p-none">
                         <ul class="second-font list-2">
-                            <li><span class="font-weight-600">Phone: </span>+40 74 50 25 44</li>
                             <li><span class="font-weight-600">Address: </span>Falticeni, Romania</li>
-                            <li><span class="font-weight-600">Email: </span>claudiup340@gmail.com</li>
+                            <li><span class="font-weight-600">Email: </span><a class="text-white" href="mailto:claudiup340@gmail.com" target="_top">claudiup340@gmail.com </a></li>
                             <li><span class="font-weight-600">Spoken Langages: </span>English, Romaninan </li>
-							<li><span class="font-weight-600">Skype: </span>p.claus23</li>
+							<li><span class="font-weight-600">Github: </span><a class="text-white" href="https://github.com/Klaus330" target="_blank">klaus330</a></li>
+                            <li><span class="font-weight-600">Linkedin: </span><a class="text-white" href="https://www.linkedin.com/in/popa-claudiu-a0592a168/" target="_blank">Claudiu Popa</a></li>
                         </ul>
                     </div>
                     <a href="#" class="col s12 m12 l4 xl4 waves-effect waves-light btn font-weight-500">

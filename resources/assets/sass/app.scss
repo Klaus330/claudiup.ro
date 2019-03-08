@@ -45,6 +45,10 @@ blockquote{
     justify-content: space-between;
 }
 
+.justify-around{
+    justify-content: space-around;
+}
+
 .items-center{
     align-items: center;
 }
@@ -56,4 +60,12 @@ blockquote{
 .form-group{
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.is-gray{
+    color: rgba(255, 255, 255, .3);
+}
+
+.text-white{
+    color: #fff;
 }

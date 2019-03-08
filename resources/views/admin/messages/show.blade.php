@@ -13,6 +13,9 @@
 			<p>Message:</p>
 			<p>{{$message->body}}</p>	
 		</div>
+		<div class="col-md-12">
+			<a href="{{route('message.replyForm', $message->id)}}" class="btn green">Reply</a>
+		</div>
 	</div>
 </div>
 @endsection

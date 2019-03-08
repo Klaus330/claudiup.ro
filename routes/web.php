@@ -12,7 +12,7 @@
 */
 
 Route::view('/','home.index')->name('home');
-
+Route::view('/home','home.index');
 
 /**
 * Pages Routes
@@ -21,7 +21,9 @@ Route::post("/contact","MessageController@store")->name("contact.save");
 
 Route::prefix("/messages")->group(function(){
 	Route::get("/","MessageController@table")->name("messages.table");
-	Route::get("/{id}","MessageController@show")->name("messages.show");
+	Route::get("/{message}","MessageController@show")->name("messages.show");
+	Route::get('/reply/{message}','MessageController@replyForm')->name("message.replyForm");
+	Route::post('/reply/{message}','MessageController@reply')->name('message.reply');
 	Route::delete("/{id}","MessageController@delete")->name("messages.delete");
 });
 

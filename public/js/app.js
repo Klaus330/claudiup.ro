@@ -40602,14 +40602,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 name: '',
                 email: '',
                 body: ''
-            })
+            }),
+            submitted: false
         };
     },
 
+    computed: {
+        canSend: function canSend() {
+            var errors = this.form.errors.any();
+
+            return errors ? errors : this.submitted;
+        }
+    },
     methods: {
         onSubmit: function onSubmit() {
             var _this = this;
 
+            this.submitted = true;
             axios.post('/contact', this.form.data()).catch(function (_ref) {
                 var response = _ref.response;
 
@@ -40619,10 +40628,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     dangerMode: true
                 });
                 _this.form.reset();
+                _this.submitted = false;
             }).then(function (_ref2) {
                 var data = _ref2.data;
 
-                swal(data, '', "success");
+                swal({
+                    title: data,
+                    type: "success"
+                });
+                _this.submitted = false;
                 _this.form.reset();
             });
         }
@@ -40767,11 +40781,7 @@ var render = function() {
           "button",
           {
             staticClass: "btn font-weight-500",
-            attrs: {
-              type: "submit",
-              name: "send",
-              disabled: _vm.form.errors.any()
-            }
+            attrs: { type: "submit", name: "send", disabled: _vm.canSend }
           },
           [
             _vm._v("\n                Send Message "),
@@ -41044,7 +41054,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			projects: [{ type: 'image' }, { type: 'youtube' }, { type: 'slide' }, { type: 'book' }],
 			type: "",
-			hasConfigured: false,
+			configured: false,
 			selected: ""
 		};
 	},
@@ -41055,11 +41065,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		isSelected: function isSelected(project) {
-			if (!this.hasConfigured) {
+			if (!this.configured) {
 				if (project.type != this.item.type) return false;
 
 				this.selected = project.type;
-				this.hasConfigured = true;
+				this.configured = true;
 				return true;
 			}
 		},
@@ -42659,7 +42669,23 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(1)
+            _c("div", { staticClass: "col s12 m12 l6 xl6 submit-form" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn font-weight-500",
+                  attrs: {
+                    type: "submit",
+                    name: "send",
+                    disabled: _vm.canSubmit
+                  }
+                },
+                [
+                  _vm._v("\n                Add comment "),
+                  _c("i", { staticClass: "fa fa-comment" })
+                ]
+              )
+            ])
           ]
         )
   ])
@@ -42678,24 +42704,6 @@ var staticRenderFns = [
         },
         [
           _vm._v("\n\t\t\t\tAdd comment "),
-          _c("i", { staticClass: "fa fa-comment" })
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col s12 m12 l6 xl6 submit-form" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn font-weight-500",
-          attrs: { type: "submit", name: "send" }
-        },
-        [
-          _vm._v("\n                Add comment "),
           _c("i", { staticClass: "fa fa-comment" })
         ]
       )

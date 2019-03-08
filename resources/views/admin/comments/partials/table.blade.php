@@ -57,7 +57,7 @@
 	    </tr>
 	 @empty
 	 	<tr>
-	 		<p> There are no messages in the db.</p>
+	 		<p> There are no comments in the db.</p>
 	 	</tr>
 	 @endforelse
 </tbody>
