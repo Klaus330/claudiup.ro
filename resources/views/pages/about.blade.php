@@ -63,7 +63,7 @@
                             <li><span class="font-weight-600">Linkedin: </span><a class="text-white" href="https://www.linkedin.com/in/popa-claudiu-a0592a168/" target="_blank">Claudiu Popa</a></li>
                         </ul>
                     </div>
-                    <a href="#" class="col s12 m12 l4 xl4 waves-effect waves-light btn font-weight-500">
+                    <a href="/resume/cv.pdf" class="col s12 m12 l4 xl4 waves-effect waves-light btn font-weight-500">
 						Download Resume <i class="fa fa-file-pdf-o"></i>
 					</a>
 					<a href="/blog" class="col s12 m12 l4 xl4 btn btn-blog font-weight-500">
