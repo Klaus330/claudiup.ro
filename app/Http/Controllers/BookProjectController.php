@@ -28,7 +28,6 @@ class BookProjectController extends Controller
         
         PdfFile::store($request, $project);
         
-        return redirect()->route("projects.table");
     }
 
     public static function update(Request $request, Project $project)
