@@ -47,8 +47,8 @@
 					</div>
                     <div class="col s12 m12 l6 p-none">
                         <ul class="second-font list-1">
-                            <li><span class="font-weight-600">First Name: </span>Popa</li>
-                            <li><span class="font-weight-600">Last Name: </span>Claudiu</li>
+                            <li><span class="font-weight-600">First Name: </span>Claudiu</li>
+                            <li><span class="font-weight-600">Last Name: </span>Popa</li>
                             <li><span class="font-weight-600">Date of birth: </span>03 march 2000</li>
                             <li><span class="font-weight-600">Nationality: </span>Romanian</li>
 							<li><span class="font-weight-600">Freelance: </span>Available</li>
