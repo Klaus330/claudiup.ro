@@ -14,6 +14,12 @@ class InvalidKeywords
     protected $keywords = [
         'yahoo customer support',
         'porn',
+        'suck',
+        'dick',
+        'motherfucker',
+        'stupid',
+        'shit',
+        'nigga',
         'idiot',
         'prost',
         'fraier',
