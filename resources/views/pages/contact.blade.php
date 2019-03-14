@@ -35,7 +35,7 @@
                 <div class="col s12 m5 l3 xl3 leftside">
                     <!-- Contacts Starts -->
                     <h6 class="font-weight-500 uppercase">Email</h6>
-                    <span class="font-weight-400 second-font"><i class="fa fa-envelope"></i> <a href="mailto:claudiup340@gmail.com" target="_top" class="textwh-ite">claudiup340@gmail.com </a></span>
+                    <span class="font-weight-400 second-font"><i class="fa fa-envelope"></i> <a href="mailto:claudiup340@gmail.com" target="_top" class="text-white">claudiup340@gmail.com </a></span>
                     <h6 class="font-weight-500 uppercase">Address</h6>
                     <span class="font-weight-400 second-font"><i class="fa fa-home"></i> Fălticeni, România</span><br>
                     <h6 class="font-weight-500 uppercase">Other</h6>
