@@ -10,7 +10,7 @@
             <div class="row">
             	@foreach($skills as $skill)
 				<!-- Skills Row Starts -->
-                <div class="col s3">
+                <div class="col l3 s5" style="height: 70px;">
                 	
 						<!-- Single Skills Starts -->
 	                    <div class="resume-content">
