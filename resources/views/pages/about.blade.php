@@ -1,3 +1,5 @@
+
+
 <!-- About Section Starts -->
 <section>
     <!-- About Title Starts -->
@@ -42,7 +44,7 @@
                     <h6 class="uppercase"><i class="fa fa-user"></i> Personal Informations</h6>
 					<div class="col m12 l7 xl7 p-none">
 						<p class="second-font">I'm a Freelance Full Stack Developer based in Falticeni, Romania.<br>
-						I have serious passion on Back-end development, UI effects and creating intuive apps.
+						I have a serious passion for Back-end development, UI effects and creating intuitive apps.
 						</p>
 					</div>
                     <div class="col s12 m12 l6 p-none">
