@@ -42,7 +42,8 @@ class YoutubeProjectController extends Controller
      */
     public static function update(Request $request, Project $project)
     {
-        $project->update(['title','client','type','description']);
+        $project->update(request(['title','client','type','description']));
+        
         $project->url = $project->formatUrl(request('url'));
         
         if (request('thumbnail')) 
