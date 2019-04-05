@@ -627,7 +627,7 @@ section.bl-expand .bl-icon-close {
 .bl-main>section.topleft {
 	top: 0;
 	left: 0;
-	background-image: url('../images/main-photo.jpg');
+	background-image: url('../images/main-photo.webp');
 	position: relative;
 	background-size: cover;
 	background-repeat: no-repeat;
