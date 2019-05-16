@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="I'm a Freelance Full Stack Developer based in Falticeni, Romania.I have a serious passion for Back-end development, UI effects and creating intuitive apps. In this website you can find all of my skills and project that I worked on the past couple of years. "/>
     <!-- Template CSS Files -->
    
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
