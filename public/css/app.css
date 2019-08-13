@@ -86,3 +86,11 @@ blockquote {
   visibility: visible;
 }
 
+.carousel .indicators .indicator-item {
+  background-color: #9eb5f7;
+}
+
+.carousel .indicators {
+  background: rgba(255, 255, 255, 0.9);
+}
+
