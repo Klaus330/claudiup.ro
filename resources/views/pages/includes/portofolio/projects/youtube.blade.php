@@ -3,17 +3,33 @@
     <div class="row">
         <!-- Project Main Content Starts -->
         <div class="col s12 l6 xl6">
-            <div class="videocontainer">
-                <iframe class="youtube-video" src="{{$projects[$i]->url}}" allowfullscreen></iframe>
-            </div>
+            <img class="responsive-img" src="/images/thumbnail/projects/{{$projects[$i]->thumbnail}}" alt="project" />
         </div>
         <!-- Project Main Content Ends -->
         <!-- Project Details Starts -->
         <div class="col s12 l6 xl6 white-text">
             <h3 class="font-weight-600 white-text uppercase">{{$projects[$i]->title}}</h3>
             <ul class="project-details white-text second-font">
-                <li><i class="fa fa-user"></i><span class="font-weight-600"> Client </span>: <span class="font-weight-400 uppercase">{{$projects[$i]->client}}</span></li>
-                <li><i class="fa fa-calendar"></i><span class="font-weight-600"> Date </span>: <span class="font-weight-400 uppercase">{{$projects[$i]->created_at->format("d M, Y")}}</span></li>
+                <li>
+                    <i class="fa fa-user"></i>
+                    <span class="font-weight-600"> Client </span>: 
+                    <span class="font-weight-400 uppercase">{{$projects[$i]->client}}</span>
+                </li>
+
+                <li>
+                    <i class="fa fa-play"></i>
+                    <span class="font-weight-600"> Youtube link </span>: 
+                    <span class="font-weight-400 uppercase">
+                        <a href="{{$projects[$i]->url}}" class="white-text" target="_blank">{{$projects[$i]->url}}</a>
+                    </span>
+                </li>
+
+                <li>
+                    <i class="fa fa-calendar"></i>
+                    <span class="font-weight-600"> Date </span>: 
+                    <span class="font-weight-400 uppercase">{{$projects[$i]->created_at->format("d M, Y")}}</span>
+                </li>
+
                 <li><i class="fa fa-cogs"></i> <span class="font-weight-600"> Used Technologies</span> : 
                     <span class="font-weight-400 uppercase">
                             @foreach($projects[$i]->skills as $technology)
