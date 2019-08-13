@@ -79,18 +79,6 @@ class Project extends Model
         }
     }
 
-    /*
-    * Format the url for the Youtube Video Projects
-    */
-    public function formatUrl($url)
-    {
-        $string     = $url;
-        $search     = '#(.*?)(?:href="https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch?.*?v=))([\w\-]{10,12}).*#x';
-        $replace    = 'https://www.youtube.com/embed/$2';
-        $url        = preg_replace($search, $replace, $string);
-        return $url;
-    }
-
     public function eliminate()
     {    
         $this->skills()->detach(request('skills'));

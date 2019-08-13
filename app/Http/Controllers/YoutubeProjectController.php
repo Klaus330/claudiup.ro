@@ -26,7 +26,7 @@ class YoutubeProjectController extends Controller
         $project->client = request('client');
         $project->type = request('type');
         $project->description = request("description");
-        $project->url = $project->formatUrl(request('url'));
+        $project->url = request('url');
         $project->saveThumbnail($request, $project);
         $project->save();
 
@@ -44,7 +44,7 @@ class YoutubeProjectController extends Controller
     {
         $project->update(request(['title','client','type','description']));
         
-        $project->url = $project->formatUrl(request('url'));
+        $project->url = request('url');
         
         if (request('thumbnail')) 
             $project->updateThumbnail($request, $project);
