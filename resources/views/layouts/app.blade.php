@@ -11,10 +11,7 @@
     <link rel="icon" href="/images/logo3.png" type="image/x-icon"/>
     <title>{{ config('app.name', 'Claudiu Popa') }} - Dashboard</title>
 
-    
-    <!-- CORE CSS-->
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> --}}
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+   
     <link href="/css/materialize.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     <link href="/css/style1.css" type="text/css" rel="stylesheet">

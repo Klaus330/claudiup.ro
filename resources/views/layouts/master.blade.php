@@ -18,12 +18,11 @@
     
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/skins/blue.css" />
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.12.1/trix.css"> --}}
+    
      <link rel="stylesheet" type="text/css" href="/css/app.css" />
     
 
     <!-- Template JS Files -->
-    <script src="/js/jquery-2.2.4.min.js"></script>
     <script src="/js/modernizr.custom.js"></script>
     <script type="text/javascript">
         window.App = {!! json_encode([

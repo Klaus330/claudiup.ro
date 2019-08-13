@@ -4,7 +4,8 @@
       
         <!-- Project Main Content Starts -->
         <div class="col s12 l6 xl6">
-            <book location="{{$projects[$i]->pdf->location}}" :project_id="{{$i}}"></book>
+           
+            <img class="responsive-img" src="/images/thumbnail/projects/{{$projects[$i]->thumbnail}}" alt="project" />
         </div>
         <!-- Project Main Content Ends -->
  
@@ -24,7 +25,7 @@
             </ul>
             <hr>
             <p class="second-font">{!!Purifier::clean($projects[$i]->description)!!}</p>
-            {{-- <a href="#" class="waves-effect waves-light btn font-weight-500">Preview <i class="fa fa-external-link"></i></a> --}}
+            <a href="" class="waves-effect waves-light btn font-weight-500">Preview <i class="fa fa-external-link"></i></a>
         </div>
         <!-- Project Details Ends -->
     </div>
