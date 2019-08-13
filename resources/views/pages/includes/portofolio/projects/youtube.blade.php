@@ -17,14 +17,6 @@
                 </li>
 
                 <li>
-                    <i class="fa fa-play"></i>
-                    <span class="font-weight-600"> Youtube link </span>: 
-                    <span class="font-weight-400 uppercase">
-                        <a href="{{$projects[$i]->url}}" class="white-text" target="_blank">{{$projects[$i]->url}}</a>
-                    </span>
-                </li>
-
-                <li>
                     <i class="fa fa-calendar"></i>
                     <span class="font-weight-600"> Date </span>: 
                     <span class="font-weight-400 uppercase">{{$projects[$i]->created_at->format("d M, Y")}}</span>
@@ -40,7 +32,7 @@
             </ul>
             <hr>
             <p class="white-text second-font">{!!Purifier::clean($projects[$i]->description)!!}</p>
-            {{-- <a href="#" class="waves-effect waves-light btn font-weight-500">Preview <i class="fa fa-external-link"></i></a> --}}
+            <a href="{{$projects[$i]->url}}" class="waves-effect waves-light btn font-weight-500">Preview <i class="fa fa-external-link"></i></a>
         </div>
         <!-- Project Details Ends -->
     </div>
