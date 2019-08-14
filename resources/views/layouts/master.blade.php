@@ -12,6 +12,7 @@
     <meta name="description" content="I'm a Freelance Full Stack Developer based in Falticeni, Romania.I have a serious passion for Back-end development, UI effects and creating intuitive apps. In this website you can find all of my skills and project that I worked on the past couple of years. "/>
     <!-- Template CSS Files -->
    <meta name="google-site-verification" content="ErewXva0R5zt66KYscpXt7px1icr0qT5sDY74rycozo" />
+    <script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/jquery.animatedheadline.css" />
     <link rel="stylesheet" type="text/css" href="/css/materialize.min.css" />
