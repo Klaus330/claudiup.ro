@@ -1,1 +1,96 @@
-.swal-footer,.swal-model{text-align:center}.m-4{margin:1.5em}.mb-4{margin-bottom:1.5em}.mb-5{margin-bottom:2em}.mt-4{margin-top:1.5em}pre{border:1px solid #4169e1;background:#4169e1;padding:40px;line-height:2;font-weight:700;white-space:pre-wrap;overflow:hidden;text-overflow:ellipsis}blockquote{border-left:5px solid #4169e1}.comments-form{height:100%;display:block}.flex{display:-webkit-box;display:-ms-flexbox;display:flex}.justify-between{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.justify-around{-ms-flex-pack:distribute;justify-content:space-around}.items-center{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.h-full{height:100%}.form-group{margin-top:1em;margin-bottom:1em}.is-gray{color:hsla(0,0%,100%,.3)}.text-white{color:#fff}.carousel .carousel-item{visibility:visible}.carousel .indicators .indicator-item{background-color:#9eb5f7}.carousel .indicators{background:hsla(0,0%,100%,.9)}
+.swal-model {
+  text-align: center;
+}
+
+.swal-footer {
+  text-align: center;
+}
+
+.m-4 {
+  margin: 1.5em;
+}
+
+.mb-4 {
+  margin-bottom: 1.5em;
+}
+
+.mb-5 {
+  margin-bottom: 2em;
+}
+
+.mt-4 {
+  margin-top: 1.5em;
+}
+
+pre {
+  border: 1px solid #4169e1;
+  background: #4169e1;
+  padding: 40px;
+  line-height: 2;
+  font-weight: bold;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+blockquote {
+  border-left: 5px solid #4169e1;
+}
+
+.comments-form {
+  height: 100%;
+  display: block;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.justify-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.justify-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.items-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.form-group {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.is-gray {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.text-white {
+  color: #fff;
+}
+
+.carousel .carousel-item {
+  visibility: visible;
+}
+
+.carousel .indicators .indicator-item {
+  background-color: #9eb5f7;
+}
+
+.carousel .indicators {
+  background: rgba(255, 255, 255, 0.9);
+}
+
