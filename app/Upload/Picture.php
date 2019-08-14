@@ -7,10 +7,8 @@ use Intervention\Image\Facades\Image;
 
 class Picture
 {
-	const REGULAR_WIDTH = 543;
-	const REGUALR_HEIGHT = 400;
 
-	public static function store($file, string $path, $width = REGULAR_WIDTH, $height = REGUALR_HEIGHT)
+	public static function store($file, string $path, $width = 543, $height = 400)
 	{
 		if(gettype($file) == 'string') // php special method
 		{
@@ -25,7 +23,7 @@ class Picture
         return $filename;
 	}
 
-	public static function update($model,string $pictureName,string $path, $width = REGULAR_WIDTH, $height = REGUALR_HEIGHT)
+	public static function update($model,string $pictureName,string $path, $width = 543, $height = 400)
 	{
 		$oldfilename = $model->$pictureName;
 

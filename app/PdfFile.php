@@ -31,7 +31,8 @@ class PdfFile extends Model
         $pdf = PdfFile::create([
             'project_id' => $project->id,
             'location' => $filename
-       ]);
+        ]);
+
         $pdf->save();
 
         $project->pdf_file_id = $pdf->id;

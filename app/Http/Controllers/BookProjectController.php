@@ -11,7 +11,7 @@ class BookProjectController extends Controller
 {
     public function __construct()
     {
-        return 	$this->middleware("auth");
+        return 	$this->middleware("auth")->except(['show']);
     }
 
     public static function store(Request $request)
@@ -27,7 +27,6 @@ class BookProjectController extends Controller
         $project->skills()->sync(request('skills'), false);
         
         PdfFile::store($request, $project);
-        
     }
 
     public static function update(Request $request, Project $project)
@@ -47,7 +46,12 @@ class BookProjectController extends Controller
    
     public static function delete(Project $project)
     {
-        PdfFile::delete("/files/uploads/{$project->pdf->location}");
+        PdfFile::elimitate("/files/uploads/{$project->pdf->location}");
         $project->eliminate();
+    }
+
+    public function show(Project $project)
+    {
+        return view("pages.showProject", compact("project"));
     }
 }

@@ -24,11 +24,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.12.1/trix.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/select2.min.css">
-
-    <script src="{{ asset('js/app.js') }}" defer></script>    
-     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+    
+    @yield('head')
+    <script src="/js/manifest.js"></script>
+    <script src="/js/vendor.js"></script>
+    <script src="/js/app.js" defer></script>
+
+
      <script type="text/javascript">
         window.App = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -36,7 +41,7 @@
             'signedIn' => Auth::check()
         ]) !!};
     </script>
-    @yield('head')
+    
   </head>
   <body class="cyan loaded" style="">
       @include('includes.preloader')

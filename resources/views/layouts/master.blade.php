@@ -20,7 +20,6 @@
     <link rel="stylesheet" type="text/css" href="/css/skins/blue.css" />
     
      <link rel="stylesheet" type="text/css" href="/css/app.css" />
-    
 
     <!-- Template JS Files -->
     <script src="/js/modernizr.custom.js"></script>

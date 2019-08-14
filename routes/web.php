@@ -27,6 +27,8 @@ Route::prefix("/messages")->group(function(){
 	Route::delete("/{id}","MessageController@delete")->name("messages.delete");
 });
 
+Route::get('project/book/{project}','BookProjectController@show')->name("show.book.project");
+
 Route::prefix("/blog")->group(function(){
 	Route::get("/","BlogController@index")->name('blog.home');
 	Route::get("/{slug}","BlogController@showPost")->name("blog.show");
