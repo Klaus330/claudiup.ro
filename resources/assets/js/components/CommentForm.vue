@@ -80,8 +80,8 @@
             return{
                 slug:'',
                 form:{
-                    name: window.App.signedIn ? window.App.user.name : '',
-                    email:window.App.signedIn ? window.App.user.email : '',
+                    name: window.App.signedIn ? "Claudiu" : '',
+                    email:window.App.signedIn ? "claudiup340@gmail.com" : '',
                     message:'',
                     parent_id: this.comment === undefined ? null : this.comment.id
                 },
@@ -126,8 +126,8 @@
 
             resetFrom(){
                 this.form = {
-                    name: window.App.signedIn ? window.App.user.name : '',
-                    email:window.App.signedIn ? window.App.user.email : '',
+                    name: window.App.signedIn ? "Claudiu" : '',
+                    email:window.App.signedIn ? "claudiup340@gmail.com" : '',
                     message:'',
                     commentId: this.comment == undefined ? null : this.comment.id
                 }
