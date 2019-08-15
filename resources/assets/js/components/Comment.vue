@@ -11,7 +11,7 @@
 			<div>
 				<a class="comment-reply" href="#" @click="showForm">Reply</a>
 			</div>	
-			<div v-if="isReplying">
+			<div v-if="isReplying" class="mb-5 pb-5">
 				<comment-form :postId="item.post_id" :comment="item"></comment-form>
 			</div>
 		</div>
