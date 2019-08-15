@@ -31029,6 +31029,7 @@ var render = function() {
       _vm.isReplying
         ? _c(
             "div",
+            { staticClass: "mb-5 pb-5" },
             [
               _c("comment-form", {
                 attrs: { postId: _vm.item.post_id, comment: _vm.item }
@@ -31252,7 +31253,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "comments-form mb-5" }, [
+  return _c("div", { staticClass: "comments-form" }, [
     !_vm.signedIn
       ? _c(
           "form",
@@ -31534,23 +31535,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col s12 m12 l6 xl6 submit-form" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn font-weight-500",
-                  attrs: {
-                    type: "submit",
-                    name: "send",
-                    disabled: _vm.canSubmit
-                  }
-                },
-                [
-                  _vm._v("\n                Add comment "),
-                  _c("i", { staticClass: "fa fa-comment" })
-                ]
-              )
-            ])
+            _vm._m(1)
           ]
         )
   ])
@@ -31569,6 +31554,24 @@ var staticRenderFns = [
         },
         [
           _vm._v("\n\t\t\t\tAdd comment "),
+          _c("i", { staticClass: "fa fa-comment" })
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col s12 m12 l6 xl6 submit-form" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn font-weight-500",
+          attrs: { type: "submit", name: "send" }
+        },
+        [
+          _vm._v("\n                Add comment "),
           _c("i", { staticClass: "fa fa-comment" })
         ]
       )
