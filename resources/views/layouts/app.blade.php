@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="/images/logo3.webp" type="image/x-icon"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <title>{{ config('app.name', 'Claudiu Popa') }} - Dashboard</title>
 
    
