@@ -47,7 +47,7 @@
 	      			</a>
 	      		</li>
 	      		<li class="list-inline-item">
-	      			{!! Form::open(['method'=>'DELETE', 'route' => ["messages.delete", $comment->id]]) !!}
+	      			{!! Form::open(['method'=>'DELETE', 'route' => ["comments.delete", $comment->id]]) !!}
 	                {{ method_field('DELETE') }}﻿
 						<button class="btn-floating red darken-1"><i class="material-icons">close</i></button>
 					{!!Form::close() !!}
