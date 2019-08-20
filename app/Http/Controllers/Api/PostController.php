@@ -14,7 +14,14 @@ class PostController extends Controller
 	}
 	
     public function index(){
-       return response()->json(Post::latest()->paginate(5));
+
+    	$posts = Post::latest()->paginate(5)->map(function($post){
+    		return collect($post->toArray())
+    				->only(["title","slug"])
+    				->all();
+    	});
+
+       return $posts;
     }
     
 }
