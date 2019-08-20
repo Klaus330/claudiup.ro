@@ -12,4 +12,9 @@ class PostController extends Controller
 	{
 		return Post::where('id',$id)->pluck('slug')->first();
 	}
+	
+    public function index(){
+       return response()->json(Post::latest()->paginate(5));
+    }
+    
 }

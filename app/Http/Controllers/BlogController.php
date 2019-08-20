@@ -17,9 +17,6 @@ class BlogController extends Controller
     {
         $posts = $this->getPosts($filters);
         
-        if(request()->wantsJson())
-            return response()->json(Post::latest()->paginate(5));
-        
         return view('blog.index', compact('posts'));
     }
 
