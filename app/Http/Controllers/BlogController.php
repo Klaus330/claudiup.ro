@@ -16,7 +16,7 @@ class BlogController extends Controller
     public function index(PostFilter $filters)
     {
         $posts = $this->getPosts($filters);
-
+        
         if(request()->wantsJson())
             return response()->json(Post::latest()->paginate(5));
         
