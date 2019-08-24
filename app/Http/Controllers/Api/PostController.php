@@ -15,9 +15,9 @@ class PostController extends Controller
 	
     public function index(){
 
-    	$posts = Post::latest()->paginate(5)->map(function($post){
+    	$posts = Post::latest()->paginate(10)->map(function($post){
     		return collect($post->toArray())
-    				->only(["title","slug"])
+    				->only(["title","slug",'body',"thumbnail", "created_at"])
     				->all();
     	});
 
