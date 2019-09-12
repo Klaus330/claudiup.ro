@@ -24,4 +24,12 @@ class PostController extends Controller
        return $posts;
     }
     
+    public function show($slug)
+    {   
+        $post = collect(
+                    Post::where("slug",$slug)->first()->toArray()
+                )->only(["title","slug",'body',"thumbnail", "created_at"]);
+        
+        return $post;
+    }    
 }

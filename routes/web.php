@@ -66,5 +66,7 @@ Route::resource('/skill','SkillController');
 Route::resource('/projects','ProjectController');
 
 Route::get('/api/blog',"Api\PostController@index");
+Route::get('/api/blog/{slug}',"Api\PostController@show");
+
 //  Api Routes
 Route::get('api/post/slug/{post}', 'Api\PostController@getPostSlug');
