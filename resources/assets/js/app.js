@@ -12,6 +12,8 @@ Vue.component('book', require('./components/Book.vue'));
 Vue.component('comment', require('./components/Comment.vue'));
 Vue.component('comment-form', require('./components/CommentForm.vue'));
 Vue.component('floating-button', require('./components/FloatingButton.vue'));
+Vue.component('secret', require('./components/Secret.vue'));
+Vue.component('whack', require('./components/WhackAMole.vue'));
 
 new Vue({
     el: '#app',

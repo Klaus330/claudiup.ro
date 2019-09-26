@@ -17,6 +17,7 @@
             @include("pages.projects")
             
         </div>
+        <secret></secret>
     </div>
     <!-- Wrapper Ends -->
 

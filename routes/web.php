@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -13,6 +14,7 @@
 
 Route::view('/','home.index')->name('home');
 Route::view('/home','home.index');
+Route::get('/mole','HomeController@secret')->name('secret.game');
 
 /**
 * Pages Routes
