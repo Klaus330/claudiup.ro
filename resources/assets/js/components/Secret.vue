@@ -8,7 +8,7 @@ window.addEventListener("keyup",(e) => {
 	pressed.splice(-secret.length - 1, pressed.length - secret.length);
 
 	if(pressed.join('').includes(secret)){
-		window.location.replace('http://localhost:8000/mole');
+		window.location.replace('http://www.claudiupopa.ro/mole');
 	}
 });
 </script>
