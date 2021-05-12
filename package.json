@@ -26,7 +26,7 @@
     "admin-lte": "^2.4.8",
     "bootstrap-slider": "^10.4.2",
     "bootstrap-sweetalert": "^1.0.1",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "jquery": "^3.3.1",
     "moment": "^2.22.2",
     "redis-server": "^1.2.2",
